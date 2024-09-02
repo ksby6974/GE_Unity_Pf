@@ -18,9 +18,11 @@ public class UI_MainTitle : MonoBehaviour
     {
         bCanSelect = false;
         fWaiting = 1f;
-        iCursor = 0;
-        panel = GetComponent<GameObject>();
+        iCursor = -1;
+        //panel = GetComponent<GameObject>();
         button = GetComponentsInChildren<Button>();
+
+        Debug.Log($"{panel}");
     }
 
     // Update is called once per frame
@@ -34,26 +36,34 @@ public class UI_MainTitle : MonoBehaviour
     {
         if (bCanSelect == false)
         {
-            if (fWaiting > 0)
+            if (fWaiting <= 0)
             {
-                fWaiting -= 1f * Time.deltaTime;
+                panel.GetComponent<UI_FadePanel>().Draw_PanelOff();
+                bCanSelect = true;
+                iCursor = 0;
+                button[iCursor].GetComponentInChildren<UI_Button>().SetButton(true);
             }
             else
             {
-                panel.GetComponentInChildren<UI_FadePanel>().Draw_PanelOff();
-                bCanSelect = true;
-                button[iCursor].GetComponentInChildren<UI_Button>().SetButton(true);
+                fWaiting -= 1f * Time.deltaTime;
             }
         }
     }
 
     void MoveCursor()
     {
+        //
         if (bCanSelect == false)
             return;
 
+        // 이동 확인
+        bool bTemp = false;
+
+        // 목록 이동
         if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.RightArrow))
         {
+            bTemp = true;
+
             if (iCursor >= iLimit)
             {
                 iCursor = 0;
@@ -65,6 +75,8 @@ public class UI_MainTitle : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.LeftArrow))
         {
+            bTemp = true;
+
             if (iCursor <= 0)
             {
                 iCursor = iLimit;
@@ -75,7 +87,9 @@ public class UI_MainTitle : MonoBehaviour
             }
         }
 
-        Show(iCursor);
+        // 출력
+        if (bTemp == true)
+            Show(iCursor);
     }
 
     void Show(int input)
@@ -84,11 +98,11 @@ public class UI_MainTitle : MonoBehaviour
         {
             if (input == i)
             {
-               // button[input].GetComponent<UI_Button>().SetButton(true);
+                button[i].GetComponent<UI_Button>().SetButton(true);
             }
             else
             {
-               // button[input].GetComponent<UI_Button>().SetButton(false);
+               button[i].GetComponent<UI_Button>().SetButton(false);
             }
         }
     }
