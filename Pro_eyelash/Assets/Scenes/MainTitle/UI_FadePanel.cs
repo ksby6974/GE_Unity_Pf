@@ -7,12 +7,10 @@ public class UI_FadePanel : MonoBehaviour
 {
     [SerializeField] bool bOn;
     [SerializeField] GameObject obj;
-    float fLimit;
-    byte Alpha;
+    [SerializeField] byte Alpha;
 
     void Awake()
     {
-        fLimit = 255;
         Alpha = 255;
         obj = this.gameObject;
         bOn = true;
@@ -31,27 +29,44 @@ public class UI_FadePanel : MonoBehaviour
 
     public void Draw(bool b)
     {
+        byte Temp = 1;
+
         if (b == true)
         {
-
+            if (Alpha < 255)
+            {
+                Alpha += Temp;
+            }
+            else
+            {
+                Alpha = 255;
+            }
         }
         else
         {
-
+            if (Alpha > 0)
+            {
+                Alpha -= Temp;
+            }
+            else
+            {
+                Alpha = 0;
+            }
         }
 
         obj.GetComponent<Image>().color = new Color32(0,0,0,Alpha);
+        //obj.SetActive(false);
     }
 
     public void Draw_PanelOn()
     {
+        Alpha = 0;
         bOn = true;
-        obj.SetActive(true);
     }
 
     public void Draw_PanelOff()
     {
+        Alpha = 255;
         bOn = false;
-        obj.SetActive(false);
     }
 }

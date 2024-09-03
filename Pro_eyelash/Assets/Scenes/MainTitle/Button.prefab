@@ -173,7 +173,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 360, y: 70}
+  m_SizeDelta: {x: 480, y: 180}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5093494770358422311
 CanvasRenderer:
@@ -269,9 +269,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14409ce521249e84ab87b71ec90dbacc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textpro: {fileID: 0}
+  textpro_Main: {fileID: 0}
   textpro_1: {fileID: 0}
   fSpace: 0
+  bAct: 0
 --- !u!1 &7035037819182889024
 GameObject:
   m_ObjectHideFlags: 0
