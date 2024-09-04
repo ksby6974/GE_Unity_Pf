@@ -14,11 +14,10 @@ public class UI_Button : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        SetButton(false);
-        //textpro_Main = GetComponentInChildren<TextMeshProUGUI>();
-        //textpro_1 = GetComponentInChildren<TextMeshProUGUI>();
         fSpace = 0;
         bEffect_Blink = false;
+        textpro_Main.characterSpacing = 0;
+        SetButton(false);
     }
 
     // Update is called once per frame
