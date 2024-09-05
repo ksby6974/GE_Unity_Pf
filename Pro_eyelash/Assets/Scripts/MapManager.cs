@@ -8,17 +8,18 @@ public class MapManager : MonoBehaviour
     [SerializeField] GameObject iTile;
     [SerializeField] GameObject [,] iTileArray;
     int iLimit = 8;
-    int iCount = 0;
+    int iCount = 1;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         iMapType = 0;
         iTileArray = new GameObject[iLimit,iLimit];
 
-        //int iTemp = Screen.width / iLimit;
-        this.transform.position = new Vector3(this.transform.position.x - 10, this.transform.position.y - 10,0);
-        //Debug.Log($"{Screen.width}, {iTemp}");
+        int iTemp = Screen.width / 16;
+        Debug.Log($"{Screen.width}, {iTemp}");
+
+        this.transform.position = new Vector3(this.transform.position.x - 10, this.transform.position.y - 10, 0);
 
 
         CreateMap(iMapType);
@@ -32,24 +33,28 @@ public class MapManager : MonoBehaviour
 
     public void CreateMap(int type)
     {
+        float fTemp = 2.6f;
+
         for (int i = 0; i < iLimit; i++)
         {
             for (int j = 0; j < iLimit; j++)
             {
-                CreateTile(0, i, j);
+                float fTempX = (float)j * fTemp;
+                float fTempY = (float)i * fTemp;
+
+                CreateTile(0, i, j, fTempX, fTempY);
             }
         }
+
+        //this.transform.rotation = Quaternion.Euler(new Vector3(90, this.transform.rotation.y, this.transform.rotation.z));
     }
 
-    public void CreateTile(int i, int x, int y)
+    public void CreateTile(int type, int i, int j, float x, float y)
     {
-        float fTemp = 2.5f;
-            
-        Vector3 vTemp = this.transform.position + new Vector3(x * fTemp, y * fTemp, 0);
-
-        GameObject instance = Instantiate(iTile, vTemp, Quaternion.identity);
+        Vector3 vTemp = this.transform.position + new Vector3(x, y, 0);
+        GameObject instance = Instantiate(iTile, vTemp, this.transform.rotation);
         instance.transform.SetParent(this.transform);
-        instance.GetComponent<Tile>().SetInit(iCount++, vTemp.x, vTemp.y);
-        iTileArray[x,y] = instance;
+        instance.GetComponent<Tile_>().SetInit(iCount++, vTemp.x, vTemp.y);
+        iTileArray[i,j] = instance;
     }
 }

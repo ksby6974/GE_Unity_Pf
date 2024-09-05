@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class Tile : MonoBehaviour
+public class Tile_ : MonoBehaviour
 {
     [SerializeField] int iTileIndex;
     [SerializeField] int iType;
@@ -13,17 +13,17 @@ public class Tile : MonoBehaviour
     [SerializeField] TextMeshProUGUI textPro;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         iTileIndex = -1;
-        textPro.text = $"{iTileIndex}";
         canvas = GetComponentInChildren<Canvas>();
+        textPro = GetComponentInChildren<TextMeshProUGUI>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        SetPosition_Text();
+        Set_Text();
     }
 
     public void SetInit(int index, float x, float y)
@@ -38,8 +38,9 @@ public class Tile : MonoBehaviour
         this.fY = y;
     }
 
-    public void SetPosition_Text()
+    public void Set_Text()
     {
-        //textPro.transform = this.transform;
+        textPro.text = $"{iTileIndex}";
+        textPro.transform.position = new Vector3(this.transform.position.x, this.transform.position.y + 1.5f, this.transform.position.z);
     }
 }
