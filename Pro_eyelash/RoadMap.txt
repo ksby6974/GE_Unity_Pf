@@ -1,0 +1,19 @@
+전체 - 코어 로더
+
+[0] - Title
+SceneChanger
+ButtonManager
+
+
+[1] - Map
+MapManager
+
+
+[2] - Battle
+CollectionManager
+ㄴ Root
+　ㄴ HandController
+　　ㄴDiscardpos
+　　ㄴDrawPos
+　　ㄴHandCamera
+　　ㄴExhaustPos
