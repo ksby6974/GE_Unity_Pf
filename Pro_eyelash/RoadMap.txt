@@ -17,3 +17,9 @@ CollectionManager
 　　ㄴDrawPos
 　　ㄴHandCamera
 　　ㄴExhaustPos
+
+CombatManager
+ㄴ
+
+BackgroundContainer
+ㄴBackgroundRoot
