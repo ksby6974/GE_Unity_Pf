@@ -6,6 +6,9 @@ using TMPro;
 
 public class TitleManager : MonoBehaviour
 {
+    public TitleManager() { }
+    public static TitleManager Instance { get; private set; }
+
     [SerializeField] TextMeshProUGUI [] textPros;
 
     // Start is called before the first frame update
