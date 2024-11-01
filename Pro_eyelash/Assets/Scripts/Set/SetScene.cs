@@ -12,8 +12,8 @@ public class SetScene : MonoBehaviour
         Battle,
     }
 
-    [SerializeField] UIManager => UIManager.Instance;
-    [SerializeField] TitleManager => TitleManager.Instance;
+    [SerializeField] UIManager UIManager  => UIManager.Instance;
+    [SerializeField] TitleManager TitleManager => TitleManager.Instance;
 
     // Start is called before the first frame update
     void Start()
@@ -29,7 +29,7 @@ public class SetScene : MonoBehaviour
 
     public void OpenMainMenuScene()
     {
-        StartCoroutine(SetAfterScene(SceneType.MainMenu));
+        StartCoroutine(ChangeScene(SceneType.MainMenu));
     }
 
     public void ExitGame()
@@ -40,7 +40,7 @@ public class SetScene : MonoBehaviour
         Application.Quit();
     }
 
-    private IEnumerator SetAfterScene(SceneType type)
+    private IEnumerator ChangeScene(SceneType type)
     {
        // UIManager.SetCanvas(UIManager.Instance.InventoryCanvas, false, true);
         yield return StartCoroutine(UIManager.Instance.FadeInOut(true));
@@ -49,10 +49,10 @@ public class SetScene : MonoBehaviour
         {
             case SceneType.MainMenu:
                 //UIManager.ChangeScene(GameManager.SceneData.mainMenuSceneIndex);
-                GameManager.InitGameplayData();
-                GameManager.SetInitalHand();
-
+                TitleManager.InitGameplayData();
+                TitleManager.SetInitalHand();
                 break;
+
             case SceneType.Map:
                 //UIManager.ChangeScene(GameManager.SceneData.mapSceneIndex);
 
