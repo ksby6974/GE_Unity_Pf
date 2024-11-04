@@ -7,39 +7,15 @@ public class SetScene : MonoBehaviour
 {
     private enum SceneType
     {
-        MainMenu,
+        Menu,
         Map,
         Battle,
     }
 
     [SerializeField] UIManager UIManager  => UIManager.Instance;
-    [SerializeField] TitleManager TitleManager => TitleManager.Instance;
+    [SerializeField] CoreManager CoreManager => CoreManager.Instance;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    public void OpenMainMenuScene()
-    {
-        StartCoroutine(ChangeScene(SceneType.MainMenu));
-    }
-
-    public void ExitGame()
-    {
-        //GameManager.OnExitApp();
-
-        //게임 종료
-        Application.Quit();
-    }
-
+    // 장면 전환
     private IEnumerator ChangeScene(SceneType type)
     {
        // UIManager.SetCanvas(UIManager.Instance.InventoryCanvas, false, true);
@@ -47,10 +23,9 @@ public class SetScene : MonoBehaviour
 
         switch (type)
         {
-            case SceneType.MainMenu:
+            case SceneType.Menu:
                 //UIManager.ChangeScene(GameManager.SceneData.mainMenuSceneIndex);
-                TitleManager.InitGameplayData();
-                TitleManager.SetInitalHand();
+                CoreManager.InitAllData();
                 break;
 
             case SceneType.Map:
@@ -66,5 +41,24 @@ public class SetScene : MonoBehaviour
 
                 //throw new ArgumentOutOfRangeException(nameof(type), type, null);
         }
+    }
+
+    // 전투
+    public void OpenBattlePhase()
+    {
+        StartCoroutine(ChangeScene(SceneType.Menu));
+    }
+
+    // 메뉴
+    public void OpenMenuPhase()
+    {
+        StartCoroutine(ChangeScene(SceneType.Menu));
+    }
+
+    //게임 종료
+    public void ExitGame()
+    {
+        CoreManager.ExitGame();
+        Application.Quit();
     }
 }

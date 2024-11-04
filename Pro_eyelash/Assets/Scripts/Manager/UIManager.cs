@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
+[DefaultExecutionOrder(-4)]
 public class UIManager : MonoBehaviour
 {
     public UIManager()
@@ -15,18 +17,31 @@ public class UIManager : MonoBehaviour
         private set;
     }
 
+    //[Header("Canvases")]
+
+    // ÆäÀÌµå¿ë
     [Header("Fader")]
     [SerializeField] private CanvasGroup fader;
     [SerializeField] private float fadeSpeed = 1f;
 
     private void Awake()
     {
-        //ÈÄ¿¡ ½Ì±ÛÅæ
+        if (Instance)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        else
+        {
+            transform.parent = null;
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
     }
 
     private IEnumerator ChangeScene(int iIndex)
     {
-        SetScene.LoadScene(iIndex);
+        SceneManager.LoadScene(iIndex);
         yield return StartCoroutine(FadeInOut(false));
     }
 
