@@ -17,6 +17,8 @@ public class UIManager : MonoBehaviour
         private set;
     }
 
+    protected MouseManager MouseManager => MouseManager.Instance;
+
     //[Header("Canvases")]
 
     // 페이드용
