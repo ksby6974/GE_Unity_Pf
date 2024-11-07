@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using chataan.Scripts.Data;
+using chataan.Scripts.Data.Sound;
 using chataan.Scripts.Enums;
 using System;
 

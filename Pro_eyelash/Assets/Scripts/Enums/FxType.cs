@@ -6,7 +6,7 @@ namespace chataan.Scripts.Enums
         Heal,    // green
         Poison,  // purple
         Block,   // blue
-        Str,     // red
+        Move,     // yellow
         Buff,    // white
         Stun     // yellow
     }

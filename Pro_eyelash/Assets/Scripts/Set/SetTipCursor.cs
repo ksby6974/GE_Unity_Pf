@@ -1,9 +1,10 @@
 using System;
 using UnityEngine;
 using chataan.Scripts.Enums;
-using chataan.Scripts.Data;
+using chataan.Scripts.Data.Cursor;
+using static chataan.Scripts.Data.Cursor.CursorData;
 
-namespace chataan.Scripts.Utils.Tip
+namespace chataan.Scripts.Tips
 {
     public class OnCursorChangedEventArgs : EventArgs
     {

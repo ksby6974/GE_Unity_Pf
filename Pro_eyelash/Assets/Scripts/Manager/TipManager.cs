@@ -2,92 +2,98 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using chataan.Scripts.Utils;
+using chataan.Scripts.Enums;
+using chataan.Scripts.Data.Keyword;
 
-public class TipManager : Singleton<TipManager>
+namespace chataan.Scripts.Tips
 {
-    [Header("References")]
-    //[SerializeField] private TooltipController tooltipController;
-    //[SerializeField] private CursorController cursorController;
-    [SerializeField] private TooltipText tooltipTextPrefab;
-    [SerializeField] private CanvasGroup canvasGroup;
-    //[SerializeField] private SpecialKeywordData specialKeywordData;
-
-    [Header("Settings")]
-    [SerializeField] private AnimationCurve fadeCurve;
-    [SerializeField] private float showDelayTime = 0.5f;
-    [SerializeField] private bool canChangeCursor;
-
-    //public SpecialKeywordData SpecialKeywordData => specialKeywordData;
-    private List<TooltipText> _tooltipTextList = new List<TooltipText>();
-   // private TooltipController TooltipController => tooltipController;
-    //private CursorController CursorController => cursorController;
-
-    private int _currentShownTooltipCount;
-
-    // 팁 표시
-    private IEnumerator Show(float delay = 0)
+    public class TipManager : Singleton<TipManager>
     {
-        var waitFrame = new WaitForEndOfFrame();
-        float timer = 0;
+        [Header("References")]
+        [SerializeField] private SetTip setTip;
+        [SerializeField] private SetTipCursor setTipCursor;
+        [SerializeField] private TooltipText tooltipTextPrefab;
+        [SerializeField] private CanvasGroup canvasGroup;
+        [SerializeField] private KeywordData keywordData;
 
-        canvasGroup.alpha = 0;
+        [Header("Settings")]
+        [SerializeField] private AnimationCurve fadeCurve;
+        [SerializeField] private float showDelayTime = 0.5f;
+        [SerializeField] private bool canChangeCursor;
 
-        yield return new WaitForSeconds(delay);
+        public KeywordData KeywordData => keywordData;
+        private List<TooltipText> _tooltipTextList = new List<TooltipText>();
+        private SetTip SetTip => setTip;
+        private SetTipCursor SetTipCursor => setTipCursor;
 
-        while (true)
+        private int _currentShownTooltipCount;
+
+        // 팁 표시
+        private IEnumerator Show(float delay = 0)
         {
-            timer += Time.deltaTime;
+            var waitFrame = new WaitForEndOfFrame();
+            float timer = 0;
 
-            var invValue = Mathf.InverseLerp(0, showDelayTime, timer);
-            canvasGroup.alpha = fadeCurve.Evaluate(invValue);
+            canvasGroup.alpha = 0;
 
-            if (timer >= showDelayTime)
+            yield return new WaitForSeconds(delay);
+
+            while (true)
             {
-                canvasGroup.alpha = 1;
-                break;
+                timer += Time.deltaTime;
+
+                var invValue = Mathf.InverseLerp(0, showDelayTime, timer);
+                canvasGroup.alpha = fadeCurve.Evaluate(invValue);
+
+                if (timer >= showDelayTime)
+                {
+                    canvasGroup.alpha = 1;
+                    break;
+                }
+                yield return waitFrame;
             }
-            yield return waitFrame;
-        }
-    }
-
-    // 표시
-    public void ShowTooltip(string contentText = "", string headerText = "", Transform tooltipTargetTransform = null, CursorType cursorType = CursorType.Default, Camera cam = null, float delayShow = 0)
-    {
-        StartCoroutine(Show(delayShow));
-        _currentShownTooltipCount++;
-        if (_tooltipTextList.Count < _currentShownTooltipCount)
-        {
-            var newTooltip = Instantiate(tooltipTextPrefab, TooltipController.transform);
-            _tooltipTextList.Add(newTooltip);
         }
 
-        _tooltipTextList[_currentShownTooltipCount - 1].gameObject.SetActive(true);
-        _tooltipTextList[_currentShownTooltipCount - 1].SetText(contentText, headerText);
-
-        TooltipController.SetFollowPos(tooltipTargetTransform, cam);
-
-        if (canChangeCursor)
-            CursorController.SetActiveCursor(cursorType);
-
-    }
-
-    // 팁 비표시
-    public void HideTooltip()
-    {
-        StopAllCoroutines();
-        _currentShownTooltipCount = 0;
-        canvasGroup.alpha = 0;
-
-        // 텍스트 비활성화
-        foreach (var tooltipText in _tooltipTextList)
+        // 표시
+        public void ShowTooltip(string contentText = "", string headerText = "", Transform tooltipTargetTransform = null, CursorType cursorType = CursorType.normal, Camera cam = null, float delayShow = 0)
         {
-            tooltipText.gameObject.SetActive(false);
+            StartCoroutine(Show(delayShow));
+            _currentShownTooltipCount++;
+            if (_tooltipTextList.Count < _currentShownTooltipCount)
+            {
+                var newTooltip = Instantiate(tooltipTextPrefab, SetTip.transform);
+                _tooltipTextList.Add(newTooltip);
+            }
+
+            _tooltipTextList[_currentShownTooltipCount - 1].gameObject.SetActive(true);
+            _tooltipTextList[_currentShownTooltipCount - 1].SetText(contentText, headerText);
+
+            SetTip.SetFollowPos(tooltipTargetTransform, cam);
+
+            if (canChangeCursor)
+            {
+                SetTipCursor.SetActiveCursor(cursorType);
+            }
         }
 
-        // 
-        if (canChangeCursor)
+        // 팁 비표시
+        public void HideTooltip()
         {
-            CursorController.SetActiveCursor(CursorType.Default);
+            StopAllCoroutines();
+            _currentShownTooltipCount = 0;
+            canvasGroup.alpha = 0;
+
+            // 텍스트 비활성화
+            foreach (var tooltipText in _tooltipTextList)
+            {
+                tooltipText.gameObject.SetActive(false);
+            }
+
+            // 
+            if (canChangeCursor)
+            {
+                SetTipCursor.SetActiveCursor(CursorType.normal);
+            }
         }
     }
 }

@@ -4,9 +4,9 @@ using UnityEngine;
 using chataan.Scripts.Enums;
 using chataan.Scripts.Gets;
 
-namespace chataan.Scripts.Data
+namespace chataan.Scripts.Data.Sound
 {
-    [CreateAssetMenu(fileName = "Sound Profile", menuName = "Chataan/Containers/SoundProfile", order = 1)]
+    [CreateAssetMenu(fileName = "SoundProfileData", menuName = "Chataan/Containers/SoundProfileData", order = 1)]
     public class SoundProfileData : MonoBehaviour
     {
         [SerializeField] private AudioActionType audioType;

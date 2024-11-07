@@ -7,56 +7,59 @@ using chataan.Scripts.Utils;
 using System;
 using System.Linq;
 
-public class FxManager : Singleton<FxManager>
+namespace chataan.Scripts.Managers
 {
-    [Header("References")]
-    [SerializeField] private List<FxBundle> fxList;
-
-    [Header("Floating Text")]
-    [SerializeField] private FloatingText floatingTextPrefab;
-
-    public Dictionary<FxType, GameObject> FXDict { get; private set; } = new Dictionary<FxType, GameObject>();
-    public List<FxBundle> FXList => fxList;
-
-    // 오버라이딩
-    private new void Awake()
+    public class FxManager : Singleton<FxManager>
     {
-        if (Instance)
+        [Header("References")]
+        [SerializeField] private List<FxBundle> fxList;
+
+        [Header("Floating Text")]
+        [SerializeField] private FloatingText floatingTextPrefab;
+
+        public Dictionary<FxType, GameObject> FXDict { get; private set; } = new Dictionary<FxType, GameObject>();
+        public List<FxBundle> FXList => fxList;
+
+        // 오버라이딩
+        private new void Awake()
         {
-            Destroy(gameObject);
-            return;
+            if (Instance)
+            {
+                Destroy(gameObject);
+                return;
+            }
+            else
+            {
+                transform.parent = null;
+                Instance = this;
+                DontDestroyOnLoad(gameObject);
+                for (int i = 0; i < Enum.GetValues(typeof(FxType)).Length; i++)
+                    FXDict.Add((FxType)i, FXList.FirstOrDefault(x => x.FxType == (FxType)i)?.FxPrefab);
+            }
         }
-        else
+
+        // 텍스트 보이기
+        public void SpawnFloatingText(Transform targetTransform, string text, int xDir = 0, int yDir = -1)
         {
-            transform.parent = null;
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
-            for (int i = 0; i < Enum.GetValues(typeof(FxType)).Length; i++)
-                FXDict.Add((FxType)i, FXList.FirstOrDefault(x => x.FxType == (FxType)i)?.FxPrefab);
+            var cloneText = Instantiate(floatingTextPrefab, targetTransform.position, Quaternion.identity);
+
+            if (xDir == 0)
+                xDir = Random.value >= 0.5f ? 1 : -1;
+            cloneText.ShowText(text, xDir, yDir);
         }
-    }
 
-    // 텍스트 보이기
-    public void SpawnFloatingText(Transform targetTransform, string text, int xDir = 0, int yDir = -1)
-    {
-        var cloneText = Instantiate(floatingTextPrefab, targetTransform.position, Quaternion.identity);
+        public void PlayFx(Transform targetTransform, FxType targetFx)
+        {
+            Instantiate(FXDict[targetFx], targetTransform);
+        }
 
-        if (xDir == 0)
-            xDir = Random.value >= 0.5f ? 1 : -1;
-        cloneText.ShowText(text, xDir, yDir);
-    }
-
-    public void PlayFx(Transform targetTransform, FxType targetFx)
-    {
-        Instantiate(FXDict[targetFx], targetTransform);
-    }
-
-    [Serializable]
-    public class FxBundle
-    {
-        [SerializeField] private FxType fxType;
-        [SerializeField] private GameObject fxPrefab;
-        public FxType FxType => fxType;
-        public GameObject FxPrefab => fxPrefab;
+        [Serializable]
+        public class FxBundle
+        {
+            [SerializeField] private FxType fxType;
+            [SerializeField] private GameObject fxPrefab;
+            public FxType FxType => fxType;
+            public GameObject FxPrefab => fxPrefab;
+        }
     }
 }

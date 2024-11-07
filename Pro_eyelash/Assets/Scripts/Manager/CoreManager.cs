@@ -2,19 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
-using chataan.Scripts.Data.Settings;
+using chataan.Scripts.Data.Scene;
+using chataan.Scripts.Data.Play;
+using chataan.Scripts.Data.Encounter;
 
 // 가장 먼저 실행
 [DefaultExecutionOrder(-10)]
 public class CoreManager : Singleton<CoreManager>
 {
-    //[Header("Data")]
-    // [SerializeField] private GamePlayData gameplayData;
+    [Header("Data")]
+    [SerializeField] private PlayData playData;
+    [SerializeField] private EncounterData encounterData;
     [SerializeField] private SceneData sceneData;
 
     public SceneData SceneData => sceneData;
-    //public EncounterData EncounterData => encounterData;
-   // public GameplayData GameplayData => gameplayData;
+    public EncounterData EncounterData => encounterData;
+    public PlayData PlayData => playData;
    // public PersistentGameplayData PersistentGameplayData { get; private set; }
     protected UIManager UIManager => UIManager.Instance;
 

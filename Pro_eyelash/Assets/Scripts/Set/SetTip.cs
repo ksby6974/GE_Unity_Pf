@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace chataan.Scripts.Utils.Tip
+namespace chataan.Scripts.Tips
 {
     public class SetTip : MonoBehaviour
     {

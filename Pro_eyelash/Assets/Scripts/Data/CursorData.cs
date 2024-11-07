@@ -2,10 +2,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using chataan.Scripts.Enums;
 
-namespace chataan.Scripts.Data
+namespace chataan.Scripts.Data.Cursor
 {
-    [CreateAssetMenu(fileName = "Cursor Data", menuName = "Chataan/Containers/CursorData", order = 0)]
+    [CreateAssetMenu(fileName = "CursorData", menuName = "Chataan/Containers/CursorData", order = 0)]
     public class CursorData : ScriptableObject
     {
         [SerializeField] private List<CursorProfile> cursorProfileList;

@@ -1,23 +1,23 @@
 Using pre-set license
 Built from '2022.3/release' branch; Version is '2022.3.20f1 (61c2feb0970d) revision 6406910'; Using compiler version '192829333'; Build Type 'Release'
-OS: 'Windows 10  (10.0.19045) 64bit Education' Language: 'ko' Physical Memory: 16297 MB
+OS: 'Windows 10  (10.0.19045) 64bit Core' Language: 'ko' Physical Memory: 32551 MB
 BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 1
 
 COMMAND LINE ARGUMENTS:
-C:\Program Files\Unity\Hub\Editor\2022.3.20f1\Editor\Unity.exe
+C:\Program Files\2022.3.20f1\Editor\Unity.exe
 -adb2
 -batchMode
 -noUpm
 -name
 AssetImportWorker0
 -projectPath
-C:/Users/Administrator/Desktop/GE_Unity_Pf/My project
+C:/Users/augap/Desktop/_pro_uni/GE_Unity_Pf/My project
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-50161
-Successfully changed project path to: C:/Users/Administrator/Desktop/GE_Unity_Pf/My project
-C:/Users/Administrator/Desktop/GE_Unity_Pf/My project
+9127
+Successfully changed project path to: C:/Users/augap/Desktop/_pro_uni/GE_Unity_Pf/My project
+C:/Users/augap/Desktop/_pro_uni/GE_Unity_Pf/My project
 [UnityMemory] Configuration Parameters - Can be set up in boot.config
     "memorysetup-bucket-allocator-granularity=16"
     "memorysetup-bucket-allocator-bucket-count=8"
@@ -49,65 +49,65 @@ C:/Users/Administrator/Desktop/GE_Unity_Pf/My project
     "memorysetup-temp-allocator-size-cloud-worker=32768"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Player connection [21352] Host "[IP] 192.168.0.29 [Port] 0 [Flags] 2 [Guid] 129130057 [EditorId] 129130057 [Version] 1048832 [Id] WindowsEditor(7,I-17) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
+Player connection [16812] Host "[IP] 222.96.242.147 [Port] 0 [Flags] 2 [Guid] 1849102176 [EditorId] 1849102176 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-N8R7USH) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
 
-Player connection [21352] Host "[IP] 192.168.0.29 [Port] 0 [Flags] 2 [Guid] 129130057 [EditorId] 129130057 [Version] 1048832 [Id] WindowsEditor(7,I-17) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
+Player connection [16812] Host "[IP] 222.96.242.147 [Port] 0 [Flags] 2 [Guid] 1849102176 [EditorId] 1849102176 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-N8R7USH) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
 
-[Physics::Module] Initialized MultithreadedJobDispatcher with 15 workers.
-Refreshing native plugins compatible for Editor in 6.27 ms, found 3 plugins.
+[Physics::Module] Initialized MultithreadedJobDispatcher with 19 workers.
+Refreshing native plugins compatible for Editor in 19.02 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2022.3.20f1 (61c2feb0970d)
-[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2022.3.20f1/Editor/Data/Resources/UnitySubsystems
-[Subsystems] Discovering subsystems at path C:/Users/Administrator/Desktop/GE_Unity_Pf/My project/Assets
+[Subsystems] Discovering subsystems at path C:/Program Files/2022.3.20f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path C:/Users/augap/Desktop/_pro_uni/GE_Unity_Pf/My project/Assets
 GfxDevice: creating device client; threaded=0; jobified=0
 Direct3D:
     Version:  Direct3D 11.0 [level 11.1]
-    Renderer: NVIDIA GeForce GTX 1660 (ID=0x2184)
+    Renderer: NVIDIA GeForce RTX 4060 Ti (ID=0x2803)
     Vendor:   NVIDIA
-    VRAM:     5980 MB
-    Driver:   31.0.15.3623
+    VRAM:     7949 MB
+    Driver:   32.0.15.6094
 Initialize mono
-Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2022.3.20f1/Editor/Data/Managed'
-Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2022.3.20f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
-Mono config path = 'C:/Program Files/Unity/Hub/Editor/2022.3.20f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56752
+Mono path[0] = 'C:/Program Files/2022.3.20f1/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/2022.3.20f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
+Mono config path = 'C:/Program Files/2022.3.20f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56620
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
-Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.20f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.007612 seconds.
-- Loaded All Assemblies, in  0.362 seconds
+Register platform support module: C:/Program Files/2022.3.20f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.010752 seconds.
+- Loaded All Assemblies, in  0.406 seconds
 Native extension for WindowsStandalone target not found
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  0.251 seconds
-Domain Reload Profiling: 611ms
-	BeginReloadAssembly (123ms)
+- Finished resetting the current domain, in  0.317 seconds
+Domain Reload Profiling: 719ms
+	BeginReloadAssembly (136ms)
 		ExecutionOrderSort (0ms)
 		DisableScriptedObjects (0ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
 		CreateAndSetChildDomain (1ms)
-	RebuildCommonClasses (34ms)
-	RebuildNativeTypeToScriptingClass (10ms)
-	initialDomainReloadingComplete (54ms)
-	LoadAllAssembliesAndSetupDomain (139ms)
-		LoadAssemblies (121ms)
+	RebuildCommonClasses (37ms)
+	RebuildNativeTypeToScriptingClass (12ms)
+	initialDomainReloadingComplete (74ms)
+	LoadAllAssembliesAndSetupDomain (143ms)
+		LoadAssemblies (132ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (137ms)
-			TypeCache.Refresh (136ms)
-				TypeCache.ScanAssembly (123ms)
+		AnalyzeDomain (140ms)
+			TypeCache.Refresh (139ms)
+				TypeCache.ScanAssembly (125ms)
 			ScanForSourceGeneratedMonoScriptInfo (0ms)
-			ResolveRequiredComponents (0ms)
-	FinalizeReload (251ms)
+			ResolveRequiredComponents (1ms)
+	FinalizeReload (318ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (193ms)
+		SetupLoadedEditorAssemblies (252ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (8ms)
-			SetLoadedEditorAssemblies (7ms)
+			InitializePlatformSupportModulesInManaged (12ms)
+			SetLoadedEditorAssemblies (8ms)
 			RefreshPlugins (0ms)
 			BeforeProcessingInitializeOnLoad (2ms)
-			ProcessInitializeOnLoadAttributes (133ms)
-			ProcessInitializeOnLoadMethodAttributes (43ms)
+			ProcessInitializeOnLoadAttributes (166ms)
+			ProcessInitializeOnLoadMethodAttributes (64ms)
 			AfterProcessingInitializeOnLoad (0ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
@@ -115,55 +115,55 @@ Domain Reload Profiling: 611ms
 ========================================================================
 Worker process is ready to serve import requests
 Begin MonoManager ReloadAssembly
-- Loaded All Assemblies, in  0.786 seconds
-Refreshing native plugins compatible for Editor in 2.60 ms, found 3 plugins.
+- Loaded All Assemblies, in  0.642 seconds
+Refreshing native plugins compatible for Editor in 6.98 ms, found 3 plugins.
 Native extension for WindowsStandalone target not found
 Package Manager log level set to [2]
 [Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
 [Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
 [Package Manager] Cannot connect to Unity Package Manager local server
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  0.579 seconds
-Domain Reload Profiling: 1364ms
-	BeginReloadAssembly (157ms)
+- Finished resetting the current domain, in  0.717 seconds
+Domain Reload Profiling: 1352ms
+	BeginReloadAssembly (167ms)
 		ExecutionOrderSort (0ms)
-		DisableScriptedObjects (5ms)
+		DisableScriptedObjects (6ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (22ms)
-	RebuildCommonClasses (42ms)
-	RebuildNativeTypeToScriptingClass (10ms)
-	initialDomainReloadingComplete (40ms)
-	LoadAllAssembliesAndSetupDomain (535ms)
-		LoadAssemblies (360ms)
+		CreateAndSetChildDomain (19ms)
+	RebuildCommonClasses (37ms)
+	RebuildNativeTypeToScriptingClass (12ms)
+	initialDomainReloadingComplete (58ms)
+	LoadAllAssembliesAndSetupDomain (361ms)
+		LoadAssemblies (300ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (271ms)
-			TypeCache.Refresh (250ms)
-				TypeCache.ScanAssembly (230ms)
-			ScanForSourceGeneratedMonoScriptInfo (15ms)
+		AnalyzeDomain (163ms)
+			TypeCache.Refresh (141ms)
+				TypeCache.ScanAssembly (127ms)
+			ScanForSourceGeneratedMonoScriptInfo (16ms)
 			ResolveRequiredComponents (5ms)
-	FinalizeReload (579ms)
+	FinalizeReload (718ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (429ms)
+		SetupLoadedEditorAssemblies (540ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (6ms)
-			SetLoadedEditorAssemblies (3ms)
+			InitializePlatformSupportModulesInManaged (8ms)
+			SetLoadedEditorAssemblies (5ms)
 			RefreshPlugins (0ms)
-			BeforeProcessingInitializeOnLoad (56ms)
-			ProcessInitializeOnLoadAttributes (335ms)
-			ProcessInitializeOnLoadMethodAttributes (22ms)
-			AfterProcessingInitializeOnLoad (6ms)
+			BeforeProcessingInitializeOnLoad (75ms)
+			ProcessInitializeOnLoadAttributes (411ms)
+			ProcessInitializeOnLoadMethodAttributes (23ms)
+			AfterProcessingInitializeOnLoad (18ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
-		AwakeInstancesAfterBackupRestoration (6ms)
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
-Refreshing native plugins compatible for Editor in 3.90 ms, found 3 plugins.
+		AwakeInstancesAfterBackupRestoration (20ms)
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.05 seconds
+Refreshing native plugins compatible for Editor in 6.96 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 3211 Unused Serialized files (Serialized files now loaded: 0)
 Unloading 32 unused Assets / (56.9 KB). Loaded Objects now: 3673.
-Memory consumption went from 129.8 MB to 129.7 MB.
-Total: 6.943800 ms (FindLiveObjects: 0.661000 ms CreateObjectMapping: 0.531500 ms MarkObjects: 5.527700 ms  DeleteObjects: 0.221700 ms)
+Memory consumption went from 125.5 MB to 125.5 MB.
+Total: 2.930800 ms (FindLiveObjects: 0.380600 ms CreateObjectMapping: 0.091500 ms MarkObjects: 2.367600 ms  DeleteObjects: 0.089700 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
@@ -180,169 +180,102 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
-  Time since last request: 1949.755268 seconds.
-  path: Assets/NueGames/NueDeck/Data/Sound/PowerSoundProfile.asset
-  artifactKey: Guid(426f246404d64304f9887eb7ac6a418e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/NueGames/NueDeck/Data/Sound/PowerSoundProfile.asset using Guid(426f246404d64304f9887eb7ac6a418e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3bb47997d7e2995178f0e1cc848a11f7') in 0.016129 seconds
+  Time since last request: 2490097.707230 seconds.
+  path: Assets/NueGames/NueDeck/NueTooltip/TooltipText.prefab
+  artifactKey: Guid(7ea7cc55df5c124459f2ce6cf540a43d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/NueGames/NueDeck/NueTooltip/TooltipText.prefab using Guid(7ea7cc55df5c124459f2ce6cf540a43d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8a809163d7ba3094f7a4f3083b287649') in 0.037882 seconds
 Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 1
+Number of asset objects unloaded after import = 17
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000026 seconds.
-  path: Assets/NueGames/NueDeck/Data/Sound/BlockSoundProfile.asset
-  artifactKey: Guid(ff6628141ca0c2b47ae1c7ef0636513c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/NueGames/NueDeck/Data/Sound/BlockSoundProfile.asset using Guid(ff6628141ca0c2b47ae1c7ef0636513c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3a701d335ad7d04d2e439be47d567f4b') in 0.001027 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 1
-========================================================================
-Received Import Request.
-  Time since last request: 7.505079 seconds.
-  path: Assets/NueGames/NueDeck/Data/Containers/Reward Container.asset
-  artifactKey: Guid(576255f7c5abd6d44800bc419cf6fbf8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/NueGames/NueDeck/Data/Containers/Reward Container.asset using Guid(576255f7c5abd6d44800bc419cf6fbf8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '83b6533f331d5b94d7f5b077ad00a4f7') in 0.005972 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 19
-========================================================================
-Received Import Request.
-  Time since last request: 20.713595 seconds.
-  path: Assets/NueGames/NueDeck/Data/Cards/2-Attack_Fast.asset
-  artifactKey: Guid(8f655889219afa649a967e88e37f98ec) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/NueGames/NueDeck/Data/Cards/2-Attack_Fast.asset using Guid(8f655889219afa649a967e88e37f98ec) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1473e00fae16c10d90c05ab9b628843d') in 0.001367 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 2
-========================================================================
-Received Import Request.
-  Time since last request: 0.000011 seconds.
-  path: Assets/NueGames/NueDeck/Data/Cards/7-Power_Strength.asset
-  artifactKey: Guid(1e5671bf6b0f90b428df809497a2f125) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/NueGames/NueDeck/Data/Cards/7-Power_Strength.asset using Guid(1e5671bf6b0f90b428df809497a2f125) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c3ca6de9d0144328da88d83dcb467c9c') in 0.000966 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 2
-========================================================================
-Received Import Request.
-  Time since last request: 0.000015 seconds.
-  path: Assets/NueGames/NueDeck/Data/Cards/5-Heal_Basic.asset
-  artifactKey: Guid(97392c824000e4049a6299b2cef0e84d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/NueGames/NueDeck/Data/Cards/5-Heal_Basic.asset using Guid(97392c824000e4049a6299b2cef0e84d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '49d9b8b0d8dd0b4c5b61fdd1dc520f62') in 0.001015 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 2
-========================================================================
-Received Import Request.
-  Time since last request: 159.100963 seconds.
-  path: Assets/NueGames/NueDeck/Sprites/Backgrounds/GeneralBackground.png
-  artifactKey: Guid(031702aba12b7c84dabfae720b1b5c1a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/NueGames/NueDeck/Sprites/Backgrounds/GeneralBackground.png using Guid(031702aba12b7c84dabfae720b1b5c1a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '430f37613e5b60ca025d9e37c17a5731') in 0.073844 seconds
+  Time since last request: 198.675487 seconds.
+  path: Assets/NueGames/NueDeck/Sprites/Characters/Enemy 1.png
+  artifactKey: Guid(02284fe64271ba949bf3ac093709ff33) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/NueGames/NueDeck/Sprites/Characters/Enemy 1.png using Guid(02284fe64271ba949bf3ac093709ff33) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7cae294bcdb980d5273fbcabc363f6bc') in 0.098259 seconds
 Number of updated asset objects reloaded before import = 0
 Number of asset objects unloaded after import = 3
 ========================================================================
 Received Import Request.
-  Time since last request: 0.612684 seconds.
-  path: Assets/NueGames/NueDeck/Sprites/Buttons/Buttons-Sheet.png
-  artifactKey: Guid(a707003c96586cc41b22ae32a9cdb636) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/NueGames/NueDeck/Sprites/Buttons/Buttons-Sheet.png using Guid(a707003c96586cc41b22ae32a9cdb636) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a3334aaaf1fc14cc47285f1cf544d14d') in 0.039972 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 21
-========================================================================
-Received Import Request.
-  Time since last request: 0.525298 seconds.
-  path: Assets/NueGames/NueDeck/Sprites/CardOutline/CardBackground_Test.png
-  artifactKey: Guid(084e8321395590d45a7fd5b5d04b9f16) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/NueGames/NueDeck/Sprites/CardOutline/CardBackground_Test.png using Guid(084e8321395590d45a7fd5b5d04b9f16) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6d848a5ccc351668266d38ac436bfd59') in 0.017825 seconds
+  Time since last request: 0.000021 seconds.
+  path: Assets/NueGames/NueDeck/Sprites/Characters/Jack.png
+  artifactKey: Guid(b7ae45ec9eeba5f4db89c1bd49e3dfc5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/NueGames/NueDeck/Sprites/Characters/Jack.png using Guid(b7ae45ec9eeba5f4db89c1bd49e3dfc5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '465dc3bad90a090d46c025ddb364b6e0') in 0.023465 seconds
 Number of updated asset objects reloaded before import = 0
 Number of asset objects unloaded after import = 3
 ========================================================================
 Received Import Request.
-  Time since last request: 29.200993 seconds.
-  path: Assets/NueGames/NueDeck/Scripts/NueExtentions/ColorExtentions.cs
-  artifactKey: Guid(957429c1a1b449da8c2abac92cb3e0cd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/NueGames/NueDeck/Scripts/NueExtentions/ColorExtentions.cs using Guid(957429c1a1b449da8c2abac92cb3e0cd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd5188e6c972114dda3e6cb18f14945dc') in 0.000478 seconds
+  Time since last request: 0.000020 seconds.
+  path: Assets/NueGames/NueDeck/Sprites/Icons/EnemyStatusIcons.png
+  artifactKey: Guid(1fb0c0cb02c616d49815abb7a9a0fc0f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/NueGames/NueDeck/Sprites/Icons/EnemyStatusIcons.png using Guid(1fb0c0cb02c616d49815abb7a9a0fc0f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a7d3b4f285f6f9a54eeab5e002fac62d') in 0.041720 seconds
 Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 0
+Number of asset objects unloaded after import = 8
 ========================================================================
 Received Import Request.
-  Time since last request: 1.074140 seconds.
-  path: Assets/NueGames/NueDeck/Scripts/NueExtentions/ComponentExtentions.cs
-  artifactKey: Guid(436ca100378e67b488987ef1c9f26dab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/NueGames/NueDeck/Scripts/NueExtentions/ComponentExtentions.cs using Guid(436ca100378e67b488987ef1c9f26dab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '91e5fe973d35961958f342d8fc005d51') in 0.000412 seconds
+  Time since last request: 0.000053 seconds.
+  path: Assets/NueGames/NueDeck/Sprites/Characters/TempEnemy..png
+  artifactKey: Guid(43e012b1bdc7ab84ba1205338fcdb6de) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/NueGames/NueDeck/Sprites/Characters/TempEnemy..png using Guid(43e012b1bdc7ab84ba1205338fcdb6de) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6c9cbaa58477361ca612a149e91c676e') in 0.023978 seconds
 Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 0
+Number of asset objects unloaded after import = 3
 ========================================================================
 Received Import Request.
-  Time since last request: 4.474020 seconds.
-  path: Assets/NueGames/NueDeck/Scripts/NueExtentions/GameObjectExtentions.cs
-  artifactKey: Guid(ede99f4da7791274eb5d8bd72fd15926) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/NueGames/NueDeck/Scripts/NueExtentions/GameObjectExtentions.cs using Guid(ede99f4da7791274eb5d8bd72fd15926) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0befcbb8d9b07cf6ca7ec30fd60c1584') in 0.000417 seconds
+  Time since last request: 0.000017 seconds.
+  path: Assets/NueGames/NueDeck/Sprites/Characters/Jack-damaged.png
+  artifactKey: Guid(305bfbdddf863cf41a278c7ce1370405) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/NueGames/NueDeck/Sprites/Characters/Jack-damaged.png using Guid(305bfbdddf863cf41a278c7ce1370405) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cdfb1ac321d2bf9aca2d1e144a5c44a8') in 0.021320 seconds
 Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 0
+Number of asset objects unloaded after import = 3
 ========================================================================
 Received Import Request.
-  Time since last request: 1.659939 seconds.
-  path: Assets/NueGames/NueDeck/Scripts/NueExtentions/ListExtentions.cs
-  artifactKey: Guid(2264d1a3ad93480a914a582a7f7c9fdb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/NueGames/NueDeck/Scripts/NueExtentions/ListExtentions.cs using Guid(2264d1a3ad93480a914a582a7f7c9fdb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cb086aa8c7c731e5a71b91be4f66bc51') in 0.000421 seconds
+  Time since last request: 0.000018 seconds.
+  path: Assets/NueGames/NueDeck/Sprites/Characters/Enemy 3.png
+  artifactKey: Guid(baef06f5c7871994aa60c5c644de6f98) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/NueGames/NueDeck/Sprites/Characters/Enemy 3.png using Guid(baef06f5c7871994aa60c5c644de6f98) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9482a80ed21e0d9b0f229cde262e6f57') in 0.022628 seconds
 Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 0
+Number of asset objects unloaded after import = 3
 ========================================================================
 Received Import Request.
-  Time since last request: 2.446779 seconds.
-  path: Assets/NueGames/NueDeck/Scripts/NueExtentions/TransformExtentions.cs
-  artifactKey: Guid(f282d4828aac46f1bddb5c95adc5e5e3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/NueGames/NueDeck/Scripts/NueExtentions/TransformExtentions.cs using Guid(f282d4828aac46f1bddb5c95adc5e5e3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0ce2c3758bd1c428a9ff0612cf4b1490') in 0.000386 seconds
+  Time since last request: 4.708471 seconds.
+  path: Assets/NueGames/NueDeck/Sprites/FX/BloodFx.png
+  artifactKey: Guid(0c8b674cf50332343b354f30b4f09ec1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/NueGames/NueDeck/Sprites/FX/BloodFx.png using Guid(0c8b674cf50332343b354f30b4f09ec1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '722c0ac208d10bbe52afd27f28926e5f') in 0.024369 seconds
 Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 0
+Number of asset objects unloaded after import = 3
 ========================================================================
 Received Import Request.
-  Time since last request: 1.231962 seconds.
-  path: Assets/NueGames/NueDeck/Scripts/NueExtentions/VectorExtentions.cs
-  artifactKey: Guid(15538f75de67479b87222cff418bd42c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/NueGames/NueDeck/Scripts/NueExtentions/VectorExtentions.cs using Guid(15538f75de67479b87222cff418bd42c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e27498ab20685c767db8f9887e6f3bc1') in 0.000486 seconds
+  Time since last request: 0.000018 seconds.
+  path: Assets/NueGames/NueDeck/Sprites/Cards/Card 4.png
+  artifactKey: Guid(a0c75614ede963a46af4bc352b3faabd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/NueGames/NueDeck/Sprites/Cards/Card 4.png using Guid(a0c75614ede963a46af4bc352b3faabd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '90aeb164a1bde2565cbc8cd2c74ba191') in 0.023292 seconds
 Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 0
+Number of asset objects unloaded after import = 3
 ========================================================================
 Received Import Request.
-  Time since last request: 2673.082494 seconds.
-  path: Assets/NueGames/NueDeck/NueDeck - Documentation.pdf
-  artifactKey: Guid(c8e6813483f01454abb69cf662d468fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/NueGames/NueDeck/NueDeck - Documentation.pdf using Guid(c8e6813483f01454abb69cf662d468fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8b03bc5a5df35ea7b621d84f05134425') in 0.000794 seconds
+  Time since last request: 0.000016 seconds.
+  path: Assets/NueGames/NueDeck/Sprites/Cards/Card 9.png
+  artifactKey: Guid(04684b85c9246b945a48b41d9ec2f4be) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/NueGames/NueDeck/Sprites/Cards/Card 9.png using Guid(04684b85c9246b945a48b41d9ec2f4be) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e764ac9943c48aaa64e1106348a947c6') in 0.025163 seconds
 Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 1
+Number of asset objects unloaded after import = 3
 ========================================================================
 Received Import Request.
-  Time since last request: 90.830237 seconds.
-  path: Assets/NueGames/NueDeck/Scripts
-  artifactKey: Guid(fb39594c8dc4c5d4cb2bf44ac350b92c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/NueGames/NueDeck/Scripts using Guid(fb39594c8dc4c5d4cb2bf44ac350b92c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '013dff9ac9cbd2b1617d1a6cf357fbf7') in 0.000386 seconds
+  Time since last request: 0.000017 seconds.
+  path: Assets/NueGames/NueDeck/Sprites/Cards/Card 11.png
+  artifactKey: Guid(f699460fbf1b2404bb6c2e727663fc86) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/NueGames/NueDeck/Sprites/Cards/Card 11.png using Guid(f699460fbf1b2404bb6c2e727663fc86) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ae38df3231e68d881e2b472913248531') in 0.022258 seconds
 Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 0
+Number of asset objects unloaded after import = 3
 ========================================================================
 Received Import Request.
-  Time since last request: 84.508894 seconds.
-  path: Assets/NueGames/NueDeck
-  artifactKey: Guid(0804d189a1c2e81499515d3d03d1d848) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/NueGames/NueDeck using Guid(0804d189a1c2e81499515d3d03d1d848) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '981463645482580e766383ed02f12100') in 0.000361 seconds
+  Time since last request: 0.000018 seconds.
+  path: Assets/NueGames/NueDeck/Sprites/Cards/Card 3.png
+  artifactKey: Guid(6d79f0e0e016ca64592cdb3293bf37da) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/NueGames/NueDeck/Sprites/Cards/Card 3.png using Guid(6d79f0e0e016ca64592cdb3293bf37da) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0da142f736be30e5ec04e51dd7f1e49a') in 0.023125 seconds
 Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 0
-========================================================================
-Received Import Request.
-  Time since last request: 16.313789 seconds.
-  path: Assets/NueGames/NueDeck/Gameplay Data.asset
-  artifactKey: Guid(49964247b53b5614c828fba95b36146b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/NueGames/NueDeck/Gameplay Data.asset using Guid(49964247b53b5614c828fba95b36146b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1fb4803f115bbeefd51f3c818a7e2e2d') in 0.001277 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 1
-========================================================================
-Received Import Request.
-  Time since last request: 2006.342985 seconds.
-  path: Assets/NueGames/NueDeck/NueTooltip/Core/CursorController.cs
-  artifactKey: Guid(d9b2e2235b30316419aad9982e36083b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/NueGames/NueDeck/NueTooltip/Core/CursorController.cs using Guid(d9b2e2235b30316419aad9982e36083b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c9ba01046b914475b45b18931f829517') in 0.000393 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 0
-========================================================================
-Received Import Request.
-  Time since last request: 2.644351 seconds.
-  path: Assets/NueGames/NueDeck/Data
-  artifactKey: Guid(9ad4d7956a803fa4594126fee8719009) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/NueGames/NueDeck/Data using Guid(9ad4d7956a803fa4594126fee8719009) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0fe9a852179332fcd8981567ac1abd7f') in 0.000369 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 0
+Number of asset objects unloaded after import = 3
+Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
+TcpMessagingSession - receive error: operation aborted. errorcode: 995, details: 스레드 종료 또는 응용 프로그램 요청 때문에 I/O 작업이 취소되었습니다.
+AssetImportWorker is now disconnected from the server
+Process exiting
+Exiting without the bug reporter. Application will terminate with return code 0
