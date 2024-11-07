@@ -114,8 +114,8 @@
     <Compile Include="Assets\NueGames\NueDeck\Scripts\UI\Reward\RewardContainer.cs" />
     <Compile Include="Assets\NueGames\NueDeck\NueTooltip\Triggers\TooltipTrigger2D.cs" />
     <Compile Include="Assets\NueGames\NueDeck\Scripts\Characters\EnemyBase.cs" />
-    <Compile Include="Assets\NueGames\NueDeck\Scripts\UI\InformationCanvas.cs" />
     <Compile Include="Assets\NueGames\NueDeck\NueTooltip\Core\CursorController.cs" />
+    <Compile Include="Assets\NueGames\NueDeck\Scripts\UI\InformationCanvas.cs" />
     <Compile Include="Assets\NueGames\NueDeck\Scripts\Data\Characters\CharacterDataBase.cs" />
     <Compile Include="Assets\NueGames\NueDeck\Scripts\Enums\EnemyIntentionType.cs" />
     <Compile Include="Assets\NueGames\NueDeck\Scripts\Card\CardActions\IncreaseMaxHealthAction.cs" />

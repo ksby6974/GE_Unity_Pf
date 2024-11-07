@@ -7,11 +7,8 @@ using chataan.Scripts.Utils;
 using System;
 using System.Linq;
 
-public class FxManager : MonoBehaviour
+public class FxManager : Singleton<FxManager>
 {
-    public FxManager() { }
-    public static FxManager Instance { get; private set; }
-
     [Header("References")]
     [SerializeField] private List<FxBundle> fxList;
 
@@ -22,7 +19,7 @@ public class FxManager : MonoBehaviour
     public List<FxBundle> FXList => fxList;
 
     // 오버라이딩
-    private void Awake()
+    private new void Awake()
     {
         if (Instance)
         {
@@ -39,6 +36,7 @@ public class FxManager : MonoBehaviour
         }
     }
 
+    // 텍스트 보이기
     public void SpawnFloatingText(Transform targetTransform, string text, int xDir = 0, int yDir = -1)
     {
         var cloneText = Instantiate(floatingTextPrefab, targetTransform.position, Quaternion.identity);

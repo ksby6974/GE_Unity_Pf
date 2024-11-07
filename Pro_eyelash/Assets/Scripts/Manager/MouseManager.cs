@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using chataan.Scripts.Enums;
 
 public class MouseManager : Singleton<MouseManager>
 {
@@ -11,12 +12,6 @@ public class MouseManager : Singleton<MouseManager>
 
     private float frameTimer;
     private int frameCount;
-
-    public enum CursorType
-    { 
-        normal = 0,
-        check = 1,
-    }
 
     private void Start()
     {

@@ -5,16 +5,16 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638664627446325153
-    m_Hash: 483530671
+      ticks: 638665490475839227
+    m_Hash: 2213572507
   m_LockFileStatus:
     m_FilePath: C:/Users/Administrator/Desktop/GE_Unity_Pf/My project/Packages/packages-lock.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638664627446379509
-    m_Hash: 1934357312
+      ticks: 638665490475884489
+    m_Hash: 1674711532
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
 m_LocalPackages:
@@ -395,7 +395,6 @@ m_ResolvedPackages:
     - 3.2.0-pre.7
     - 3.2.0-pre.8
     - 3.2.0-pre.9
-    - 3.2.0-pre.10
     - 4.0.0-pre.1
     - 4.0.0-pre.2
     compatible:
@@ -412,7 +411,6 @@ m_ResolvedPackages:
     - 3.2.0-pre.7
     - 3.2.0-pre.8
     - 3.2.0-pre.9
-    - 3.2.0-pre.10
     - 4.0.0-pre.1
     - 4.0.0-pre.2
     recommended: 3.0.9
@@ -565,7 +563,6 @@ m_ResolvedPackages:
     - 1.8.4
     - 1.8.5
     - 1.8.6
-    - 1.8.7
     compatible:
     - 1.7.6
     - 1.8.0
@@ -575,22 +572,21 @@ m_ResolvedPackages:
     - 1.8.4
     - 1.8.5
     - 1.8.6
-    - 1.8.7
     recommended: 1.7.6
     deprecated: []
   dependencies:
-  - name: com.unity.modules.audio
-    version: 1.0.0
   - name: com.unity.modules.director
     version: 1.0.0
   - name: com.unity.modules.animation
     version: 1.0.0
+  - name: com.unity.modules.audio
+    version: 1.0.0
   - name: com.unity.modules.particlesystem
     version: 1.0.0
   resolvedDependencies:
-  - name: com.unity.modules.audio
-    version: 1.0.0
   - name: com.unity.modules.director
+    version: 1.0.0
+  - name: com.unity.modules.audio
     version: 1.0.0
   - name: com.unity.modules.animation
     version: 1.0.0
@@ -752,13 +748,11 @@ m_ResolvedPackages:
     - 1.9.1
     - 1.9.2
     - 1.9.4
-    - 1.9.5
     compatible:
     - 1.9.1
     - 1.9.2
     - 1.9.4
-    - 1.9.5
-    recommended: 1.9.5
+    recommended: 1.9.4
     deprecated:
     - 1.8.0-pre.1
   dependencies:
@@ -2856,14 +2850,10 @@ m_ResolvedPackages:
     - 3.0.26
     - 3.0.27
     - 3.0.28
-    - 3.0.31
-    - 3.0.34
     compatible:
     - 3.0.27
     - 3.0.28
-    - 3.0.31
-    - 3.0.34
-    recommended: 3.0.34
+    recommended: 3.0.28
     deprecated: []
   dependencies:
   - name: com.unity.ext.nunit
@@ -3170,7 +3160,6 @@ m_ResolvedPackages:
     - 1.4.2
     - 1.4.3
     - 1.4.4
-    - 1.4.5
     - 2.0.1-exp.1
     - 2.0.1-exp.2
     - 2.0.1-pre.12
@@ -3191,7 +3180,6 @@ m_ResolvedPackages:
     - 1.4.2
     - 1.4.3
     - 1.4.4
-    - 1.4.5
     - 2.0.1-exp.1
     - 2.0.1-exp.2
     - 2.0.1-pre.12
@@ -3295,11 +3283,9 @@ m_ResolvedPackages:
     - 1.2.3
     - 1.2.4
     - 1.2.5
-    - 1.2.6
     compatible:
     - 1.2.5
-    - 1.2.6
-    recommended: 1.2.6
+    recommended: 1.2.5
     deprecated: []
   dependencies:
   - name: com.unity.test-framework

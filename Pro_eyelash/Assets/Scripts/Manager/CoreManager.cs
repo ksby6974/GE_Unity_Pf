@@ -2,30 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
+using chataan.Scripts.Data.Settings;
 
 // 가장 먼저 실행
 [DefaultExecutionOrder(-10)]
-
-//public class CoreManager : Singleton<CoreManager>
-
-public class CoreManager : MonoBehaviour
+public class CoreManager : Singleton<CoreManager>
 {
-    public CoreManager()
-    {
-    }
-
-    public static CoreManager Instance
-    {
-        get;
-        private set;
-    }
-
     //[Header("Data")]
-    // [SerializeField] private SceneData sceneData;
+    // [SerializeField] private GamePlayData gameplayData;
+    [SerializeField] private SceneData sceneData;
 
+    public SceneData SceneData => sceneData;
+    //public EncounterData EncounterData => encounterData;
+   // public GameplayData GameplayData => gameplayData;
+   // public PersistentGameplayData PersistentGameplayData { get; private set; }
     protected UIManager UIManager => UIManager.Instance;
 
-    private void Awake()
+    private new void Awake()
     {
         if (Instance)
         {
