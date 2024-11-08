@@ -57,6 +57,11 @@ public class CoreManager : Singleton<CoreManager>
     // 프로그램 닫기
     public void ExitGame()
     {
-
+        Debug.Log("Game End");
+        #if UNITY_EDITOR
+                UnityEditor.EditorApplication.isPlaying = false;
+        #else
+              Application.Quit();
+        #endif
     }
 }

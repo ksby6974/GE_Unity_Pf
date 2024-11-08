@@ -98,7 +98,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -147,6 +147,8 @@ GameObject:
   - component: {fileID: 3209790876322636208}
   - component: {fileID: 4932256274483985860}
   - component: {fileID: 8830756886165521881}
+  - component: {fileID: 5656740166971096357}
+  - component: {fileID: 2317544794022197466}
   - component: {fileID: 7767329242168774176}
   m_Layer: 5
   m_Name: MenuButton
@@ -257,7 +259,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4277357649651171478}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: 
         m_MethodName: 
         m_Mode: 1
@@ -286,6 +288,31 @@ MonoBehaviour:
     serializedVersion: 2
     rgba: 0
   iIndex: 0
+--- !u!114 &5656740166971096357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4277357649651171478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2468f6de231de44ea03b88547eab2b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2317544794022197466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4277357649651171478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da6a4db2a30d57f4ca8d685a3a07e1a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundProfileData: {fileID: 11400000, guid: 044e2ee8219dd85428ed432ada5d98ae, type: 2}
 --- !u!114 &7767329242168774176
 MonoBehaviour:
   m_ObjectHideFlags: 0

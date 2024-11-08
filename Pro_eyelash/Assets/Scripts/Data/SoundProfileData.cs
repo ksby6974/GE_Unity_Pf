@@ -1,13 +1,15 @@
-using System.Collections;
+
 using System.Collections.Generic;
 using UnityEngine;
 using chataan.Scripts.Enums;
 using chataan.Scripts.Gets;
+using System;
 
 namespace chataan.Scripts.Data.Sound
 {
-    [CreateAssetMenu(fileName = "SoundProfileData", menuName = "Chataan/Containers/SoundProfileData", order = 1)]
-    public class SoundProfileData : MonoBehaviour
+    [Serializable]
+    [CreateAssetMenu(fileName = "SoundProfileData", menuName = "Chataan/Sound/SoundProfileData", order = 0)]
+    public class SoundProfileData : ScriptableObject
     {
         [SerializeField] private AudioActionType audioType;
         [SerializeField] private List<AudioClip> randomClipList;

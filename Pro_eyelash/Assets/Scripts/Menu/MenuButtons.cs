@@ -21,7 +21,6 @@ public class MenuButtons : MonoBehaviour
     {
         SetMenuText((MenuText)iIndex);
         defaultcolor = textproText.color;
-        Debug.Log($"{textproText} {textproText.text}");
         OnPointerExit();
     }
 

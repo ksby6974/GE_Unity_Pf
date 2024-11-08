@@ -4,19 +4,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 [DefaultExecutionOrder(-4)]
-public class UIManager : MonoBehaviour
+public class UIManager : Singleton<UIManager>
 {
-    public UIManager()
-    {
-
-    }
-
-    public static UIManager Instance
-    { 
-        get;
-        private set;
-    }
-
     protected MouseManager MouseManager => MouseManager.Instance;
 
     //[Header("Canvases")]
@@ -26,22 +15,13 @@ public class UIManager : MonoBehaviour
     [SerializeField] private CanvasGroup fader;
     [SerializeField] private float fadeSpeed = 1f;
 
-    private void Awake()
+    public void ChangeScene(int iIndex)
     {
-        if (Instance)
-        {
-            Destroy(gameObject);
-            return;
-        }
-        else
-        {
-            transform.parent = null;
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
+        Debug.Log($"{iIndex}번째 장면 ChangeScene");
+        StartCoroutine(ChangeSceneRoutine(iIndex));
     }
 
-    private IEnumerator ChangeScene(int iIndex)
+    private IEnumerator ChangeSceneRoutine(int iIndex)
     {
         SceneManager.LoadScene(iIndex);
         yield return StartCoroutine(FadeInOut(false));
