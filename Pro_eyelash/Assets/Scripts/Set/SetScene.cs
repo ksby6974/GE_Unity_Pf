@@ -1,8 +1,13 @@
+using chataan.Scripts.Managers;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━
+// 장면 전환 클래스
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━
 public class SetScene : MonoBehaviour
 {
     private enum SceneType
@@ -25,7 +30,7 @@ public class SetScene : MonoBehaviour
         {
             case SceneType.Menu:
                 //UIManager.ChangeScene(GameManager.SceneData.mainMenuSceneIndex);
-                CoreManager.InitAllData();
+                CoreManager.InitPlayData();
                 break;
 
             case SceneType.Map:
@@ -39,7 +44,7 @@ public class SetScene : MonoBehaviour
             default:
                 break;
 
-                //throw new ArgumentOutOfRangeException(nameof(type), type, null);
+                throw new ArgumentOutOfRangeException(nameof(type), type, null);
         }
     }
 

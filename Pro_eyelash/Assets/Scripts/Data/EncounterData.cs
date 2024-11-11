@@ -1,16 +1,15 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-//using NueGames.NueDeck.Scripts.Characters;
-//using NueGames.NueDeck.Scripts.Data.Characters;
 using chataan.Scripts.Enums;
 using chataan.Scripts.Gets;
-
-//using NueGames.NueDeck.Scripts.NueExtentions;
 using UnityEngine;
 
 namespace chataan.Scripts.Data.Encounter
 {
+    // ━━━━━━━━━━━━━━━━━━━━━━━━━━
+    // 조우 데이터
+    // ━━━━━━━━━━━━━━━━━━━━━━━━━━
     [CreateAssetMenu(fileName = "EncounterData", menuName = "Chataan/Containers/EncounterData", order = 4)]
     public class EncounterData : ScriptableObject
     {
@@ -33,6 +32,9 @@ namespace chataan.Scripts.Data.Encounter
 
     }
 
+    // ━━━━━━━━━━━━━━━━━━━━━━━━━━
+    // 조우 스테이지
+    // ━━━━━━━━━━━━━━━━━━━━━━━━━━
     [Serializable]
     public class EnemyEncounterStage
     {
@@ -46,6 +48,9 @@ namespace chataan.Scripts.Data.Encounter
         public List<EnemyEncounter> EnemyEncounterList => enemyEncounterList;
     }
 
+    // ━━━━━━━━━━━━━━━━━━━━━━━━━━
+    // 조우 기본
+    // ━━━━━━━━━━━━━━━━━━━━━━━━━━
     [Serializable]
     public class EnemyEncounter : EncounterBase
     {
@@ -53,11 +58,14 @@ namespace chataan.Scripts.Data.Encounter
         //public List<EnemyCharacterData> EnemyList => enemyList;
     }
 
+    // ━━━━━━━━━━━━━━━━━━━━━━━━━━
+    // 조우 기본
+    // ━━━━━━━━━━━━━━━━━━━━━━━━━━
     [Serializable]
     public abstract class EncounterBase
     {
-        //[SerializeField] private BackgroundTypes targetBackgroundType;
+        [SerializeField] private BackgroundTypes targetBackgroundType;
 
-        //public BackgroundTypes TargetBackgroundType => targetBackgroundType;
+        public BackgroundTypes TargetBackgroundType => targetBackgroundType;
     }
 }

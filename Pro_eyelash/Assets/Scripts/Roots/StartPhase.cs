@@ -4,6 +4,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━
+// 게임 시작 클래스
+// 이곳에서 시작해서 불러옴
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━
+
 [DefaultExecutionOrder(-11)]
 public class StartPhase : MonoBehaviour
 {

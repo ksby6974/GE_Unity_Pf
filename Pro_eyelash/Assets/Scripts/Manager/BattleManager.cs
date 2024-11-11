@@ -2,11 +2,16 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using chattan.Scripts.Enums;
-using chataan.Scripts.Managers;
+using chataan.Scripts.Enums;
+using chataan.Scripts.Utils.Background;
+using chataan.Scripts.Data.Encounter;
+using chataan.Scripts.Chara;
 
-namespace chataan.Scripts.Battle
-{
+namespace chataan.Scripts.Managers
+{   
+    // ━━━━━━━━━━━━━━━━━━━━━━━━━━
+    // 전투 총괄 클래스
+    // ━━━━━━━━━━━━━━━━━━━━━━━━━━
     public class BattleManager : MonoBehaviour
     {
         private BattleManager() { }
@@ -14,12 +19,12 @@ namespace chataan.Scripts.Battle
         public static BattleManager Instance { get; private set; }
 
         [Header("References")]
-       // [SerializeField] private BackgroundContainer backgroundContainer; // 배경 이미지
+        [SerializeField] private SetBackground setBackground; // 배경 이미지
         [SerializeField] private List<Transform> enemyPosList;  // 적 위치
         [SerializeField] private List<Transform> allyPosList;   // 아군 위치
 
-        //public List<EnemyBase> CurrentEnemiesList { get; private set; } = new List<EnemyBase>();
-        //public List<AllyBase> CurrentAlliesList { get; private set; } = new List<AllyBase>();
+        public List<EnemyBase> CurrentEnemiesList { get; private set; } = new List<EnemyBase>();
+        public List<MyBase> CurrentAlliesList { get; private set; } = new List<MyBase>();
 
         public Action OnAllyTurnStarted;
         public Action OnEnemyTurnStarted;
@@ -27,16 +32,19 @@ namespace chataan.Scripts.Battle
 
         public List<Transform> AllyPosList => allyPosList;
 
-        //public AllyBase CurrentMainAlly => CurrentAlliesList.Count > 0 ? CurrentAlliesList[0] : null;
+        public MyBase CurrentMainAlly => CurrentAlliesList.Count > 0 ? CurrentAlliesList[0] : null;
 
-        //public EnemyEncounter CurrentEncounter { get; private set; }
+        public EnemyEncounter CurrentEncounter { get; private set; }
 
-        public BattlePhaseType CurrentBattlePhaseType
+        // ─────────────────────────
+        // 현재 전투 페이즈 진행현황
+        // ─────────────────────────
+        public BattlePhaseType CurrentBattlePhase
         {
             get => _CurrentBattle;
             private set
             {
-                ExecuteBattleState(value);
+                PlayBattlePhase(value);
                 _CurrentBattle = value;
             }
         }
@@ -44,13 +52,16 @@ namespace chataan.Scripts.Battle
         private BattlePhaseType _CurrentBattle;
 
         protected FxManager FxManager => FxManager.Instance;
-        protected SoundManager AudioManager => SoundManager.Instance;
-        protected CoreManager GameManager => CoreManager.Instance;
+        protected SoundManager SoundManager => SoundManager.Instance;
+        protected CoreManager CoreManager => CoreManager.Instance;
         protected UIManager UIManager => UIManager.Instance;
 
-        //protected CollectionManager CollectionManager => CollectionManager.Instance;
+        protected PlayerManager PlayerManager => PlayerManager.Instance;
 
+        // ─────────────────────────
+        // Awake
         // 싱글톤 아님
+        // ─────────────────────────
         private void Awake()
         {
             if (Instance)
@@ -61,38 +72,49 @@ namespace chataan.Scripts.Battle
             else
             {
                 Instance = this;
-                CurrentBattlePhaseType = BattlePhaseType.Pre;
+                CurrentBattlePhase = BattlePhaseType.Pre;
                 // 처음에는 전투 시작 페이즈부터
             }
         }
 
+        // ─────────────────────────
+        // 프레임마다
+        // ─────────────────────────
         private void Start()
         {
             StartBattle();
         }
 
+        // ─────────────────────────
+        // 전투 시작
+        // ─────────────────────────
+
         public void StartBattle()
-        {
-            BuildEnemies();
-            BuildAllies();
-            backgroundContainer.OpenSelectedBackground();
+            {
+                // 적 아군 모두 생성
+                CreateEnemy();
+                CreateMy();
+                setBackground.OpenSelectedBackground();
 
-            CollectionManager.SetGameDeck();
+                PlayerManager.SetGameDeck();
 
-            UIManager.CombatCanvas.gameObject.SetActive(true);
-            UIManager.InformationCanvas.gameObject.SetActive(true);
-            CurrentCombatStateType = BattlePhaseType.AllyTurn;
-        }
+                UIManager.BattleCanvas.gameObject.SetActive(true);
+                UIManager.InformationCanvas.gameObject.SetActive(true);
+                CurrentBattlePhase = BattlePhaseType.MyTurn;
+            }
 
-        public void ExecuteBattleState(BattlePhaseType phaseType)
+        // ─────────────────────────
+        // 전투 페이즈 진행
+        // ─────────────────────────
+        public void PlayBattlePhase(BattlePhaseType phaseType)
         {
             switch (phaseType)
             {
-                // 전투 돌입 직전
+                // 전투 돌입
                 case BattlePhaseType.Pre:
                     break;
 
-                // 플레이어 턴
+                // 플레이어 차례
                 case BattlePhaseType.MyTurn:
 
                     OnAllyTurnStarted?.Invoke();
@@ -103,13 +125,16 @@ namespace chataan.Scripts.Battle
                         return;
                     }
 
-                    GameManager.PersistentGameplayData.CurrentMana = GameManager.PersistentGameplayData.MaxMana;
+                    CoreManager.SavePlayData.CurrentMana = CoreManager.SavePlayData.MaxMana;
 
-                    PlayerManager.DrawCards(CoreManager.PersistentGameplayData.DrawCount);
+                    // 플레이어 차례 정기 드로우
+                    PlayerManager.DrawCards(CoreManager.SavePlayData.DrawCount);
 
-                    GameManager.PersistentGameplayData.CanSelectCards = true;
+                    CoreManager.SavePlayData.CanSelectCards = true;
 
                     break;
+
+                // 적 차례
                 case BattlePhaseType.EnemyTurn:
 
                     OnEnemyTurnStarted?.Invoke();
@@ -118,25 +143,222 @@ namespace chataan.Scripts.Battle
 
                     StartCoroutine(nameof(EnemyTurnRoutine));
 
-                    GameManager.PersistentGameplayData.CanSelectCards = false;
+                    CoreManager.SavePlayData.CanSelectCards = false;
 
                     break;
 
-                // 전투 종료 후
+                // 전투 종료
 
                 case BattlePhaseType.End:
-                    CoreManager.PersistentGameplayData.CanSelectCards = false;
+                    CoreManager.SavePlayData.CanSelectCards = false;
                     break;
 
+                // 그 외
                 default:
                     throw new ArgumentOutOfRangeException(nameof(phaseType), phaseType, null);
             }
         }
 
+        // ─────────────────────────
         // 차례 종료
+        // ─────────────────────────
         public void EndTurn()
         {
-            CurrentBattlePhaseType = BattlePhaseType.EnemyTurn;
+            CurrentBattlePhase = BattlePhaseType.EnemyTurn;
+        }
+
+        // ─────────────────────────
+        // 아군 파괴
+        // ─────────────────────────
+        public void OnAllyDeath(MyBase targetAlly)
+        {
+            var targetAllyData = CoreManager.SavePlayData.AllyList.Find(x => x.AllyCharacterData.CharacterID == targetAlly.AllyCharacterData.CharacterID);
+            if (CoreManager.SavePlayData.AllyList.Count > 1)
+            {
+                CoreManager.SavePlayData.AllyList.Remove(targetAllyData);
+            }
+
+            CurrentAlliesList.Remove(targetAlly);
+            UIManager.InformationCanvas.ResetCanvas();
+
+            // 전투 패배
+            if (CurrentAlliesList.Count <= 0)
+            {
+                LoseCombat();
+            }
+        }
+
+        // ─────────────────────────
+        // 적 파괴
+        // ─────────────────────────
+        public void OnEnemyDeath(EnemyBase targetEnemy)
+        {
+            CurrentEnemiesList.Remove(targetEnemy);
+
+            // 전투 승리
+            if (CurrentEnemiesList.Count <= 0)
+            {
+                WinCombat();
+            }
+        }
+
+        // ─────────────────────────
+        // 카드 강조 비활성화
+        // ─────────────────────────
+        public void DeactivateCardHighlights()
+        {
+            foreach (var currentEnemy in CurrentEnemiesList)
+                currentEnemy.EnemyCanvas.SetHighlight(false);
+
+            foreach (var currentAlly in CurrentAlliesList)
+                currentAlly.MyCanvas.SetHighlight(false);
+        }
+
+        // ─────────────────────────
+        // 행동력 증가
+        // ─────────────────────────
+        public void IncreaseCost(int target)
+        {
+            CoreManager.SavePlayData.CurrentMana += target;
+            UIManager.BattleCanvas.SetPileTexts();
+        }
+
+        // ─────────────────────────
+        // 강조문
+        // ─────────────────────────
+        public void HighlightCardTarget(TargetType targetTypeTargetType)
+        {
+            switch (targetTypeTargetType)
+            {
+                case TargetType.Enemy:
+                    foreach (var currentEnemy in CurrentEnemiesList)
+                        currentEnemy.EnemyCanvas.SetHighlight(true);
+                    break;
+                case TargetType.Ally:
+                    foreach (var currentAlly in CurrentAlliesList)
+                        currentAlly.MyCanvas.SetHighlight(true);
+                    break;
+                case TargetType.AllEnemies:
+                    foreach (var currentEnemy in CurrentEnemiesList)
+                        currentEnemy.EnemyCanvas.SetHighlight(true);
+                    break;
+                case TargetType.AllAllies:
+                    foreach (var currentAlly in CurrentAlliesList)
+                        currentAlly.AllyCanvas.SetHighlight(true);
+                    break;
+                case TargetType.RandomEnemy:
+                    foreach (var currentEnemy in CurrentEnemiesList)
+                        currentEnemy.EnemyCanvas.SetHighlight(true);
+                    break;
+                case TargetType.RandomAlly:
+                    foreach (var currentAlly in CurrentAlliesList)
+                        currentAlly.AllyCanvas.SetHighlight(true);
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(targetTypeTargetType), targetTypeTargetType, null);
+            }
+        }
+
+        // ─────────────────────────
+        // 적 생성
+        // ─────────────────────────
+        private void CreateEnemy()
+        {
+            CurrentEncounter = CoreManager.EncounterData.GetEnemyEncounter(
+                CoreManager.SavePlayData.CurrentStageId,
+                CoreManager.SavePlayData.CurrentEncounterId,
+                CoreManager.SavePlayData.IsFinalEncounter);
+
+            var enemyList = CurrentEncounter.EnemyList;
+            for (var i = 0; i < enemyList.Count; i++)
+            {
+                var clone = Instantiate(enemyList[i].EnemyPrefab, EnemyPosList.Count >= i ? EnemyPosList[i] : EnemyPosList[0]);
+                clone.BuildCharacter();
+                CurrentEnemiesList.Add(clone);
+            }
+        }
+
+        // ─────────────────────────
+        // 아군 생성
+        // ─────────────────────────
+        private void CreateMy()
+        {
+            for (var i = 0; i < CoreManager.SavePlayData.AllyList.Count; i++)
+            {
+                var clone = Instantiate(CoreManager.SavePlayData.AllyList[i], AllyPosList.Count >= i ? AllyPosList[i] : AllyPosList[0]);
+                clone.BuildCharacter();
+                CurrentAlliesList.Add(clone);
+            }
+        }
+
+        // 전투 결과
+        #region ResultBattle
+
+            // 전투 패배
+            private void LoseBattle()
+            {
+                if (CurrentCombatStateType == CombatStateType.EndCombat) return;
+
+                CurrentCombatStateType = CombatStateType.EndCombat;
+
+                PlayerManager.DiscardHand();
+                PlayerManager.DiscardPile.Clear();
+                PlayerManager.DrawPile.Clear();
+                PlayerManager.HandPile.Clear();
+                PlayerManager.HandController.hand.Clear();
+                UIManager.BattleCanvas.gameObject.SetActive(true);
+                UIManager.BattleCanvas.CombatLosePanel.SetActive(true);
+            }
+
+            // 전투 승리
+            private void WinCombat()
+            {
+                if (CurrentCombatStateType == CombatStateType.EndCombat)
+                {
+                    return;
+                }
+
+                CurrentCombatStateType = CombatStateType.EndCombat;
+
+                foreach (var allyBase in CurrentAlliesList)
+                {
+                    CoreManager.SavePlayData.SetAllyHealthData(allyBase.AllyCharacterData.CharacterID,
+                        allyBase.CharacterStats.CurrentHealth, allyBase.CharacterStats.MaxHealth);
+                }
+
+                PlayerManager.ClearPiles();
+
+
+                if (CoreManager.SavePlayData.IsFinalEncounter)
+                {
+                    UIManager.BattleCanvas.CombatWinPanel.SetActive(true);
+                }
+                else
+                {
+                    CurrentMainAlly.CharacterStats.ClearAllStatus();
+                    CoreManager.SavePlayData.CurrentEncounterId++;
+                    UIManager.BattleCanvas.gameObject.SetActive(false);
+                    UIManager.RewardCanvas.gameObject.SetActive(true);
+                    UIManager.RewardCanvas.PrepareCanvas();
+                    UIManager.RewardCanvas.BuildReward(RewardType.Gold);
+                    UIManager.RewardCanvas.BuildReward(RewardType.Card);
+                }
+
+            }
+        #endregion
+
+        private IEnumerator EnemyTurnRoutine()
+        {
+            var waitDelay = new WaitForSeconds(0.1f);
+
+            foreach (var currentEnemy in CurrentEnemiesList)
+            {
+                yield return currentEnemy.StartCoroutine(nameof(EnemyExample.ActionRoutine));
+                yield return waitDelay;
+            }
+
+            if (CurrentCombatStateType != CombatStateType.EndCombat)
+                CurrentCombatStateType = CombatStateType.AllyTurn;
         }
     }
 }

@@ -1,5 +1,9 @@
 namespace chataan.Scripts.Enums
 {
+    // ━━━━━━━━━━━━━━━━━━━━━━━━━━
+    // 효과음 종류
+    // ━━━━━━━━━━━━━━━━━━━━━━━━━━
+
     public enum AudioActionType
     {
         Attack,
