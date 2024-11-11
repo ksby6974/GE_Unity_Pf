@@ -1,4 +1,3 @@
-using chataan.Scripts.Battle;
 using chataan.Scripts.Enums;
 using chataan.Scripts.Managers;
 using System.Collections;

@@ -1,7 +1,7 @@
 using chataan.Scripts.Data.Card;
 using System.Collections.Generic;
 using UnityEngine;
-using chataan.Scripts.Battle;
+using chataan.Scripts.Card;
 
 namespace chataan.Scripts.Managers
 {
@@ -116,7 +116,7 @@ namespace chataan.Scripts.Managers
         // ─────────────────────────
         // 카드 버리기
         // ─────────────────────────
-        public void OnCardDiscarded(Card targetCard)
+        public void OnCardDiscarded(CardBase targetCard)
         {
             HandPile.Remove(targetCard.CardData);
             DiscardPile.Add(targetCard.CardData);

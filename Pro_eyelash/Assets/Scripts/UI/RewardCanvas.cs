@@ -1,5 +1,6 @@
 using chataan.Scripts.Data.Card;
 using chataan.Scripts.Data.Containers;
+using chataan.Scripts.Data.Reward;
 using chataan.Scripts.Enums;
 using chataan.Scripts.Gets;
 using chataan.Scripts.UI.Reward;
@@ -119,7 +120,7 @@ namespace chataan.Scripts.UI
         {
             CoreManager.SavePlayData.CurrentGold += amount;
             _currentRewardsList.Remove(rewardContainer);
-            UIManager.InformationCanvas.SetGoldText(CoreManager.SavePlayData.CurrentGold);
+            UIManager.InfoCanvas.SetGoldText(CoreManager.SavePlayData.CurrentGold);
             Destroy(rewardContainer.gameObject);
         }
 

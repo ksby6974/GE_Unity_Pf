@@ -106,7 +106,7 @@ namespace chataan.Scripts.Card
 
                 foreach (var target in targetList)
                 {
-                    CardActionProcessor.GetAction(playerAction.CardEffectType).DoAction(new CardActionParameters(playerAction.ActionValue,target, self, CardData, this));
+                    SetCardAction.GetAction(playerAction.CardEffectType).DoAction(new CardActionParameters(playerAction.ActionValue,target, self, CardData, this));
                 }
             }
 

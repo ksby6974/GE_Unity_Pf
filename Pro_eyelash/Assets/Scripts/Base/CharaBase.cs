@@ -1,4 +1,3 @@
-using chataan.Scripts.Battle;
 using chataan.Scripts.Enums;
 using chataan.Scripts.Interface;
 using chataan.Scripts.Managers;
@@ -42,12 +41,12 @@ namespace chataan.Scripts.Chara
 
         }
 
-        public CharaBase GetCharacterBase()
+        public CharaBase GetCharaBase()
         {
             return this;
         }
 
-        public CharaType GetCharacterType()
+        public CharaType GetCharaType()
         {
             return CharaType;
         }

@@ -8,7 +8,7 @@ using UnityEngine;
 namespace chataan.Scripts.Data.Keyword
 {
     [CreateAssetMenu(fileName = "KeywordData", menuName = "Chataan/Containers/KeywordData", order = 0)]
-    public class KeywordData : MonoBehaviour
+    public class KeywordData : ScriptableObject
     {
         [SerializeField] private List<KeywordBase> keywordBaseList;
         public List<KeywordBase> KeywordBaseList => keywordBaseList;

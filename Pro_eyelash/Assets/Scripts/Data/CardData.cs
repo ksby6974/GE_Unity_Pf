@@ -1,4 +1,3 @@
-using chataan.Scripts.Battle;
 using chataan.Scripts.Enums;
 using System;
 using System.Collections;
@@ -14,8 +13,8 @@ namespace chataan.Scripts.Data.Card
     // 카드 기본 데이터
     // Card 클래스에 포함되는 해당 카드의 고유 데이터
     // ━━━━━━━━━━━━━━━━━━━━━━━━━━
-    [CreateAssetMenu(fileName = "Card Data", menuName = "NueDeck/Collection/Card", order = 0)]
-    public class CardData : MonoBehaviour
+    [CreateAssetMenu(fileName = "CardData", menuName = "Chataan/Collection/CardData", order = 0)]
+    public class CardData : ScriptableObject
     {
         [Header("Card Profile")]
         [SerializeField] private string id;

@@ -1,5 +1,5 @@
 using chataan.Scripts.Managers;
-using System.Collections;
+using chataan.Scripts.UI;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,8 +11,8 @@ namespace chataan.Scripts.Utils.Background
 
     public class SetBackground : MonoBehaviour
     {
-        [SerializeField] private List<BackgroundRoot> backgroundRootList;
-        public List<BackgroundRoot> BackgroundRootList => backgroundRootList;
+        [SerializeField] private List<BackgroundBase> backgroundBaseList;
+        public List<BackgroundBase> BackgroundBaseList => backgroundBaseList;
 
         private BattleManager BattleManager => BattleManager.Instance;
 
@@ -22,7 +22,7 @@ namespace chataan.Scripts.Utils.Background
         public void OpenSelectedBackground()
         {
             var encounter = BattleManager.CurrentEncounter;
-            foreach (var backgroundRoot in BackgroundRootList)
+            foreach (var backgroundRoot in BackgroundBaseList)
             {
                 backgroundRoot.gameObject.SetActive(encounter.TargetBackgroundType == backgroundRoot.BackgroundType);
             }

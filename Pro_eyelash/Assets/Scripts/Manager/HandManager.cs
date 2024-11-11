@@ -1,12 +1,14 @@
 using chataan.Scripts.Card;
-using chataan.Scripts.Managers;
+using chataan.Scripts.Chara;
+using chataan.Scripts.Enums;
+using chataan.Scripts.Interface;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.TextCore.Text;
 
-namespace chataan.Scripts.Battle
+namespace chataan.Scripts.Managers
 {
     // ¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬¦¬
     // ÇÃ·¹ÀÌ¾î ÆÐÁ¶ÀÛ Å¬·¡½º
@@ -34,17 +36,17 @@ namespace chataan.Scripts.Battle
         public LayerMask selectableLayer;
         public LayerMask targetLayer;
         public Camera cam = null;
-        [HideInInspector] public List<CardBase> hand; // Cards currently in hand
+        [HideInInspector] public List<CardBase> hand; // ÇöÀç Ä«µå¸¦ Áã°í ÀÖ´Â ÆÐ
 
         protected FxManager FxManager => FxManager.Instance;
         protected SoundManager SoundManager => SoundManager.Instance;
-        protected CoreManager CoreMManager => CoreManager.Instance;
+        protected CoreManager CoreManager => CoreManager.Instance;
         protected BattleManager BattleManager => BattleManager.Instance;
         protected PlayerManager PlayerManager => PlayerManager.Instance;
         protected UIManager UIManager => UIManager.Instance;
 
         private Plane _plane; // world XY plane, used for mouse position raycasts
-        private Vector3 _a, _b, _c; // Used for shaping hand into curve
+        private Vector3 _a, _b, _c; // Ä«µå¸¦ µå·¡±× ¾Ø µå·ÓÇÒ ¶§ ²ªÀÌ´Â °¢µµ 3¹æÇâ
 
         private int _selected = -1; // Card index that is nearest to mouse
         private int _dragged = -1; // Card index that is held by mouse (inside of hand)
@@ -66,20 +68,31 @@ namespace chataan.Scripts.Battle
 
         public bool IsDraggingActive { get; private set; } = true;
 
+        // ¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡
+        // Awake
+        // ¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡
         private void Awake()
         {
+            // Ä«¸Þ¶ó¸¦ ÀÌ°÷À¸·Î
             _mainCam = Camera.main;
         }
 
+        // ¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡
+        // ÇÚµå ÃÊ±âÈ­
+        // ¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡
         private void Start()
         {
             InitHand();
         }
 
+        // ¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡
+        // Update
+        // ¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡
         private void Update()
         {
             // --------------------------------------------------------
             // HANDLE MOUSE & RAYCAST POSITION
+            // µå·¡±× ¾Ø µå·Ó °úÁ¤
             // --------------------------------------------------------
 
             if (!IsDraggingActive)
@@ -91,6 +104,7 @@ namespace chataan.Scripts.Battle
 
             // --------------------------------------------------------
             // HANDLE CARDS IN HAND
+            // ÆÐ¿¡ ÀÖ´Â Ä«µå Á¶ÀÛ
             // --------------------------------------------------------
 
             HandleCardsInHand(count, mouseButton, sqrDistance);
@@ -98,6 +112,7 @@ namespace chataan.Scripts.Battle
             // --------------------------------------------------------
             // HANDLE DRAGGED CARD
             // (Card held by mouse, inside hand)
+            // Ä«µå µå·¡±× Á¶ÀÛ
             // --------------------------------------------------------
 
             HandleDraggedCardInsideHand(mouseButton, count);
@@ -105,12 +120,15 @@ namespace chataan.Scripts.Battle
             // --------------------------------------------------------
             // HANDLE HELD CARD
             // (Card held by mouse, outside of the hand)
+            // Ä«µå È¦µå Á¶ÀÛ
             // --------------------------------------------------------
 
             HandleDraggedCardOutsideHand(mouseButton, mousePos);
         }
 
+        // ¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡
         // ÆÐ ÃÊ±âÈ­
+        // ¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡
         private void InitHand()
         {
             _a = transform.TransformPoint(curveStart);
@@ -121,10 +139,15 @@ namespace chataan.Scripts.Battle
             _prevMousePos = Input.mousePosition;
         }
 
-        // Ä«µå µå·¡±×
+        // ¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡
+        // Ä«µå µå·¡±× Á¶ÀÛ °¡´É ¿©ºÎ
+        // ¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡
         public void EnableDragging() => IsDraggingActive = true;
         public void DisableDragging() => IsDraggingActive = false;
 
+        // ¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡
+        // ¸¶¿ì½º ÀÔ·Â Á¶ÀÛ
+        // ¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡
         private Vector2 HandleMouseInput(out int count, out float sqrDistance, out bool mouseButton)
         {
             Vector2 mousePos = Input.mousePosition;
@@ -148,6 +171,9 @@ namespace chataan.Scripts.Battle
             return mousePos;
         }
 
+        // ¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡
+        // ÆÐ¿¡ ÀÖ´Â Ä«µå Á¶ÀÛ
+        // ¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡
         private void HandleCardsInHand(int count, bool mouseButton, float sqrDistance)
         {
             for (var i = 0; i < count; i++)
@@ -156,7 +182,7 @@ namespace chataan.Scripts.Battle
                 var cardTransform = card.transform;
 
                 // Set to inactive material if not enough mana required to use card
-                card.SetInactiveMaterialState(CoreManager.PersistentGameplayData.CurrentMana < card.CardData.ManaCost);
+                card.SetInactiveMaterialState(CoreManager.SavePlayData.CurrentMana < card.CardData.Cost);
 
                 var noCardHeld = _heldCard == null; // Whether a card is "held" (outside of hand)
                 var onSelectedCard = noCardHeld && _selected == i;
@@ -230,7 +256,7 @@ namespace chataan.Scripts.Battle
                 }
 
                 // Get Selected Card
-                if (CoreManager.PersistentGameplayData.CanSelectCards)
+                if (CoreManager.SavePlayData.CanSelectCards)
                 {
                     //float d = (p - mouseWorldPos).sqrMagnitude;
                     if (d < sqrDistance)
@@ -260,6 +286,9 @@ namespace chataan.Scripts.Battle
             }
         }
 
+        // ¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡
+        // ÆÐ¿¡ ÀÖ´Â Ä«µå Á¶ÀÛ »©³»±â
+        // ¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡
         private void HandleDraggedCardOutsideHand(bool mouseButton, Vector2 mousePos)
         {
             if (_heldCard != null)
@@ -278,10 +307,10 @@ namespace chataan.Scripts.Battle
                     Quaternion.LookRotation(cardForward, cardUp), 80f * Time.deltaTime);
                 cardTransform.position = cardPos;
 
-                CombatManager.HighlightCardTarget(_heldCard.CardData.CardActionDataList[0].ActionTargetType);
+                BattleManager.HighlightCardTarget(_heldCard.CardData.CardActionDataList[0].TargetType);
 
                 //if (!canSelectCards || cardTransform.position.y <= transform.position.y + 0.5f) {
-                if (!CoreManager.PersistentGameplayData.CanSelectCards || _mouseInsideHand)
+                if (!CoreManager.SavePlayData.CanSelectCards || _mouseInsideHand)
                 {
                     //  || sqrDistance <= 2
                     // Card has gone back into hand
@@ -290,7 +319,7 @@ namespace chataan.Scripts.Battle
                     _selected = -1;
                     _heldCard = null;
 
-                    CombatManager.DeactivateCardHighlights();
+                    BattleManager.DeactivateCardHighlights();
 
                     return;
                 }
@@ -299,31 +328,36 @@ namespace chataan.Scripts.Battle
             }
         }
 
-
+        // ¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡
+        // µå·ÓÀ¸·Î Ä«µå »ç¿ë
+        // ¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡
         private void PlayCard(Vector2 mousePos)
         {
-            // Use Card
+            // µå·ÓÀ¸·Î Ä«µå »ç¿ë
             var mouseButtonUp = Input.GetMouseButtonUp(0);
-            if (!mouseButtonUp) return;
+            if (!mouseButtonUp)
+            {
+                return;
+            }
 
-            //Remove highlights
-            CombatManager.DeactivateCardHighlights();
+            // °­Á¶ Á¦°Å
+            BattleManager.DeactivateCardHighlights();
             bool backToHand = true;
 
-            if (CoreManager.PersistentGameplayData.CanUseCards && CoreManager.PersistentGameplayData.CurrentMana >= _heldCard.CardData.ManaCost)
+            if (CoreManager.SavePlayData.CanUseCards && CoreManager.SavePlayData.CurrentMana >= _heldCard.CardData.Cost)
             {
-                RaycastHit hit;
+                //RaycastHit hit;
                 var mainRay = _mainCam.ScreenPointToRay(mousePos);
                 var _canUse = false;
-                CharacterBase selfCharacter = CombatManager.CurrentMainAlly;
-                CharacterBase targetCharacter = null;
+                CharaBase selfCharacter = BattleManager.CurrentMainAlly;
+                CharaBase targetCharacter = null;
 
                 _canUse = _heldCard.CardData.UsableWithoutTarget || CheckPlayOnCharacter(mainRay, _canUse, ref selfCharacter, ref targetCharacter);
 
                 if (_canUse)
                 {
                     backToHand = false;
-                    _heldCard.Use(selfCharacter, targetCharacter, CombatManager.CurrentEnemiesList, CombatManager.CurrentAlliesList);
+                    _heldCard.Use(selfCharacter, targetCharacter, BattleManager.CurrentEnemiesList, BattleManager.CurrentAlliesList);
                 }
             }
 
@@ -333,26 +367,27 @@ namespace chataan.Scripts.Battle
             _heldCard = null;
         }
 
-        private bool CheckPlayOnCharacter(Ray mainRay, bool _canUse, ref CharacterBase selfCharacter,
-            ref CharacterBase targetCharacter)
+        // ¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡
+        // Ä³¸¯ÅÍ°¡ Ä«µå »ç¿ë °¡´ÉÇÑ°¡?
+        // ¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡
+        private bool CheckPlayOnCharacter(Ray mainRay, bool _canUse, ref CharaBase selfCharacter,
+            ref CharaBase targetCharacter)
         {
             RaycastHit hit;
             if (Physics.Raycast(mainRay, out hit, 1000, targetLayer))
             {
-                var character = hit.collider.gameObject.GetComponent<ICharacter>();
+                var character = hit.collider.gameObject.GetComponent<IChara>();
 
                 if (character != null)
                 {
-                    var checkEnemy = (_heldCard.CardData.CardActionDataList[0].ActionTargetType == ActionTargetType.Enemy &&
-                                      character.GetCharacterType() == CharacterType.Enemy);
-                    var checkAlly = (_heldCard.CardData.CardActionDataList[0].ActionTargetType == ActionTargetType.Ally &&
-                                     character.GetCharacterType() == CharacterType.Ally);
+                    var checkEnemy = (_heldCard.CardData.CardActionDataList[0].TargetType == TargetType.Enemy && character.GetCharaType() == CharaType.Enemy);
+                    var checkAlly = (_heldCard.CardData.CardActionDataList[0].TargetType == TargetType.Ally && character.GetCharaType() == CharaType.My);
 
                     if (checkEnemy || checkAlly)
                     {
                         _canUse = true;
-                        selfCharacter = CombatManager.CurrentMainAlly;
-                        targetCharacter = character.GetCharacterBase();
+                        selfCharacter = BattleManager.CurrentMainAlly;
+                        targetCharacter = character.GetCharaBase();
                     }
                 }
             }
@@ -360,11 +395,14 @@ namespace chataan.Scripts.Battle
             return _canUse;
         }
 
+        // ¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡
+        // »ç¿ëÇÏÁö ¾ÊÀº Ä«µå´Â ´Ù½Ã ÆÐ¿¡ ¾ÈÀ¸·Î
+        // ¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡
         private void HandleDraggedCardInsideHand(bool mouseButton, int count)
         {
             if (!mouseButton)
             {
-                // Stop dragging
+                // µå·¡±× Á¤Áö
                 _heldCardOffset = Vector3.zero;
                 _dragged = -1;
             }
@@ -387,12 +425,15 @@ namespace chataan.Scripts.Battle
 
             if (_heldCard == null && mouseButton && _dragged != -1 && _selected != -1 && _dragged != _selected)
             {
-                // Move dragged card
+                // µå·¡±×µÈ Ä«µå ÀÌµ¿
                 MoveCardToIndex(_dragged, _selected);
                 _dragged = _selected;
             }
         }
 
+        // ¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡
+        // ÆÐ¿¡ µé¾î°¡´Â Ä«µå Ç¥Çö
+        // ¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡
         private void CheckMouseInsideHandBounds(out bool mouseButton)
         {
             var point = transform.InverseTransformPoint(_mouseWorldPos);
@@ -401,6 +442,9 @@ namespace chataan.Scripts.Battle
             mouseButton = Input.GetMouseButton(0);
         }
 
+        // ¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡
+        // ÈÖ¾îÁö´Â È­»ìÇ¥ Ç¥ÇöÀ» À§ÇØ ÇöÀç Ä«µå¿ÍÀÇ °Å¸® °è»ê
+        // ¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡
         private void GetDistanceToCurrentSelectedCard(out int count, out float sqrDistance)
         {
             count = hand.Count;
@@ -413,12 +457,18 @@ namespace chataan.Scripts.Battle
             }
         }
 
+        // ¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡
+        // ÇöÀç È­¸é¿¡¼­ ¸¶¿ì½º À§Ä¡ °è»ê
+        // ¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡
         private void GetMouseWorldPosition(Vector2 mousePos)
         {
             var ray = cam.ScreenPointToRay(mousePos);
             if (_plane.Raycast(ray, out var enter)) _mouseWorldPos = ray.GetPoint(enter);
         }
 
+        // ¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡
+        // ÆÐ¿¡ ÀÖ´Â Ä«µå ±â¿ï¾îÁø °¢µµ Ç¥Çö
+        // ¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡
         private void TiltCard(Vector2 mousePos)
         {
             _mousePosDelta = (mousePos - _prevMousePos) * new Vector2(1600f / Screen.width, 900f / Screen.height) *
@@ -441,6 +491,9 @@ namespace chataan.Scripts.Battle
             }
         }
 
+        // ¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡
+        // È­»ìÇ¥ ÈÖ¾îÁö´Â ºÎºÐ °è»ê (3¹æÇâ)
+        // ¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡
         /// <summary>
         /// Obtains a point along a curve based on 3 points. Equal to Lerp(Lerp(a, b, t), Lerp(b, c, t), t).
         /// </summary>
@@ -451,26 +504,28 @@ namespace chataan.Scripts.Battle
             return (oneMinusT * oneMinusT * a) + (2f * oneMinusT * t * b) + (t * t * c);
         }
 
-        /// <summary>
+        // ¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡
+        // È­»ìÇ¥ ÈÖ¾îÁö´Â ºÎºÐ °è»ê : ¹ÌºÐÀ¸·Î
         /// Obtains the derivative of the curve (tangent)
-        /// </summary>
+        // ¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡
         public static Vector3 GetCurveTangent(Vector3 a, Vector3 b, Vector3 c, float t)
         {
             return 2f * (1f - t) * (b - a) + 2f * t * (c - b);
         }
 
-        /// <summary>
+        // ¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡
+        // È­»ìÇ¥ ÈÖ¾îÁö´Â ºÎºÐ °è»ê : Tan
         /// Obtains a direction perpendicular to the tangent of the curve
-        /// </summary>
+        // ¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡
         public static Vector3 GetCurveNormal(Vector3 a, Vector3 b, Vector3 c, float t)
         {
             Vector3 tangent = GetCurveTangent(a, b, c, t);
             return Vector3.Cross(tangent, Vector3.forward);
         }
 
-        /// <summary>
+        // ¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡
         /// Moves the card in hand from the currentIndex to the toIndex. If you want to move a card that isn't in hand, use AddCardToHand
-        /// </summary>
+        // ¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡
         public void MoveCardToIndex(int currentIndex, int toIndex)
         {
             if (currentIndex == toIndex) return; // Same index, do nothing
@@ -484,9 +539,9 @@ namespace chataan.Scripts.Battle
             }
         }
 
-        /// <summary>
-        /// Adds a card to the hand. Optional param to insert it at a given index.
-        /// </summary>
+        // ¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡
+        // ÆÐ¿¡ Ä«µå Ãß°¡
+        // ¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡
         public void AddCardToHand(CardBase card, int index = -1)
         {
             if (index < 0)
@@ -508,9 +563,9 @@ namespace chataan.Scripts.Battle
             }
         }
 
-        /// <summary>
-        /// Remove the card at the specified index from the hand.
-        /// </summary>
+        // ¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡
+        // ÇÚµå¿¡¼­ Æ¯Á¤ ÀÎµ¦½ºÀÇ Ä«µå Á¦°Å
+        // ¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡
         public void RemoveCardFromHand(int index)
         {
             if (updateHierarchyOrder)

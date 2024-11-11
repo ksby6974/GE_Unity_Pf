@@ -1,6 +1,8 @@
 using System.Collections.Generic;
+using chataan.Scripts.Card;
 using chataan.Scripts.Chara;
 using chataan.Scripts.Data.Card;
+using chataan.Scripts.Data.Deck;
 using UnityEngine;
 
 namespace chataan.Scripts.Data.Settings

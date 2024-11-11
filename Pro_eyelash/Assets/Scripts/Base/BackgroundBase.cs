@@ -1,12 +1,12 @@
 using UnityEngine;
 using chataan.Scripts.Enums;
 
-namespace chataan.Scripts.Utils.Background
+namespace chataan.Scripts.UI
 {
     // ━━━━━━━━━━━━━━━━━━━━━━━━━━
     // 메인 배경
     // ━━━━━━━━━━━━━━━━━━━━━━━━━━
-    public class BackgroundRoot : MonoBehaviour
+    public class BackgroundBase : MonoBehaviour
     {
         [SerializeField] private BackgroundTypes backgroundType;
 

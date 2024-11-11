@@ -12,7 +12,7 @@ namespace chataan.Scripts.Data.Chara
     // ━━━━━━━━━━━━━━━━━━━━━━━━━━
     // 적 데이터
     // ━━━━━━━━━━━━━━━━━━━━━━━━━━
-    [CreateAssetMenu(fileName = "EnemyData", menuName = "chataan/Chara/Enemy", order = 1)]
+    [CreateAssetMenu(fileName = "EnemyData", menuName = "Chataan/Chara/Enemy", order = 1)]
     public class EnemyData : CharaDataBase
     {
         [Header("Settings")]

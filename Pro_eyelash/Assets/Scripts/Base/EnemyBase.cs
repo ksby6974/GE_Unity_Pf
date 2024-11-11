@@ -172,4 +172,12 @@ namespace chataan.Scripts.Chara
             }
         }
     }
+
+    // ━━━━━━━━━━━━━━━━━━━━━━━━━━
+    // 더미용 적
+    // ━━━━━━━━━━━━━━━━━━━━━━━━━━
+    public class EnemyExample : EnemyBase
+    {
+
+    }
 }

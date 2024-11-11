@@ -42,8 +42,8 @@ public class CoreManager : Singleton<CoreManager>
             transform.parent = null;
             Instance = this;
             DontDestroyOnLoad(gameObject);
-            //CardActionProcessor.Initialize();
-            //EnemyActionProcessor.Initialize();
+            SetCardAction.Initialize();
+            SetEnemyAction.Initialize();
             InitPlayData();
             InitHand();
         }

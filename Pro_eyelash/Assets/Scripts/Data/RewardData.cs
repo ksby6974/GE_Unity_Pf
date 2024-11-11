@@ -1,11 +1,10 @@
 using chataan.Scripts.Data.Card;
-using chataan.Scripts.Data.Reward;
 using chataan.Scripts.Gets;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace chataan.Scripts.Data.Containers
+namespace chataan.Scripts.Data.Reward
 {
     // ━━━━━━━━━━━━━━━━━━━━━━━━━━
     // 보상 데이터 클래스

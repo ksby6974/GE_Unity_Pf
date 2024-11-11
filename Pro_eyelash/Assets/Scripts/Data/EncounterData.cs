@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using chataan.Scripts.Data.Chara;
 using chataan.Scripts.Enums;
 using chataan.Scripts.Gets;
 using UnityEngine;
@@ -54,8 +55,8 @@ namespace chataan.Scripts.Data.Encounter
     [Serializable]
     public class EnemyEncounter : EncounterBase
     {
-        //[SerializeField] private List<EnemyCharacterData> enemyList;
-        //public List<EnemyCharacterData> EnemyList => enemyList;
+        [SerializeField] private List<EnemyData> enemyList;
+        public List<EnemyData> EnemyList => enemyList;
     }
 
     // 收收收收收收收收收收收收收收收收收收收收收收收收收收

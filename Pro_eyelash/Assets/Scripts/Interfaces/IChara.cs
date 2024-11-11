@@ -8,7 +8,7 @@ namespace chataan.Scripts.Interface
     // 收收收收收收收收收收收收收收收收收收收收收收收收收收
     public interface IChara
     {
-        public CharaBase GetCharacterBase();
-        public CharaType GetCharacterType();
+        public CharaBase GetCharaBase();
+        public CharaType GetCharaType();
     }
 }
