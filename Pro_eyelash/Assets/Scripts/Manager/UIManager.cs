@@ -1,3 +1,4 @@
+using chataan.Scripts.Data.Card;
 using chataan.Scripts.UI;
 using System.Collections;
 using System.Collections.Generic;
@@ -30,6 +31,30 @@ namespace chataan.Scripts.Managers
         public InfoCanvas InfoCanvas => infoCanvas;
         public RewardCanvas RewardCanvas => rewardCanvas;
         public InvenCanvas InvenCanvas => invenCanvas;
+
+        // ─────────────────────────
+        // 창 보여주기
+        // ─────────────────────────
+        public void OpenInventory(List<CardData> cardList, string title)
+        {
+            SetCanvas(InvenCanvas, true, true);
+            InvenCanvas.ChangeTitle(title);
+            InvenCanvas.SetCards(cardList);
+        }
+
+        // ─────────────────────────
+        // 캔버스 설정
+        // ─────────────────────────
+        public void SetCanvas(CanvasBase targetCanvas, bool open, bool reset = false)
+        {
+            if (reset)
+                targetCanvas.ResetCanvas();
+
+            if (open)
+                targetCanvas.OpenCanvas();
+            else
+                targetCanvas.CloseCanvas();
+        }
 
         // ─────────────────────────
         // 장면 전환

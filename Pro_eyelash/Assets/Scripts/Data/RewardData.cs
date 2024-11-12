@@ -9,7 +9,7 @@ namespace chataan.Scripts.Data.Reward
     // ━━━━━━━━━━━━━━━━━━━━━━━━━━
     // 보상 데이터 클래스
     // ━━━━━━━━━━━━━━━━━━━━━━━━━━
-    [CreateAssetMenu(fileName = "Reward Data", menuName = "chataan/Containers/RewardData", order = 4)]
+    [CreateAssetMenu(fileName = "RewardData", menuName = "Chataan/Containers/RewardData", order = 4)]
     public class RewardData : ScriptableObject
     {
         [SerializeField] private List<CardRewardData> cardRewardDataList;

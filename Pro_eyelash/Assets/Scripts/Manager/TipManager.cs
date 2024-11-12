@@ -4,8 +4,9 @@ using UnityEngine;
 using chataan.Scripts.Utils;
 using chataan.Scripts.Enums;
 using chataan.Scripts.Data.Keyword;
+using chataan.Scripts.Tips;
 
-namespace chataan.Scripts.Tips
+namespace chataan.Scripts.Managers
 {
     public class TipManager : Singleton<TipManager>
     {

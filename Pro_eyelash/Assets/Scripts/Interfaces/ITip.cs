@@ -1,5 +1,5 @@
 using chataan.Scripts.Enums;
-using chataan.Scripts.Tips;
+using chataan.Scripts.Managers;
 using UnityEngine;
 
 namespace chataan.Scripts.Interface

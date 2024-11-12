@@ -8,6 +8,7 @@ using chataan.Scripts.Chara;
 using chataan.Scripts.Data.Card;
 using chataan.Scripts.Card;
 using chataan.Scripts.Managers;
+using chataan.Scripts.EnemyAction;
 
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━
 // 게임의 핵심 클래스

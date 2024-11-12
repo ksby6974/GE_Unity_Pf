@@ -22,8 +22,6 @@ public class MouseManager : Singleton<MouseManager>
         Cursor.SetCursor(cursorTextureArray[0], Vector2.zero, CursorMode.Auto);
     }
 
-    //https://www.youtube.com/watch?v=8Fm37H1Mwxw
-
     private void Update()
     {
         SetCursorImage();

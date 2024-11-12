@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/NueGames/NueDeck/Scenes/2- Combat Scene.unity
+- path: Assets/NueGames/NueDeck/Scenes/NueCore.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0
