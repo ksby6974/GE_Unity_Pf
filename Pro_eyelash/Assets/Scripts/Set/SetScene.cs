@@ -23,13 +23,13 @@ public class SetScene : MonoBehaviour
     // 장면 전환
     private IEnumerator ChangeScene(SceneType type)
     {
-       // UIManager.SetCanvas(UIManager.Instance.InventoryCanvas, false, true);
+        UIManager.SetCanvas(UIManager.Instance.InvenCanvas, false, true);
         yield return StartCoroutine(UIManager.Instance.FadeInOut(true));
 
         switch (type)
         {
             case SceneType.Menu:
-                //UIManager.ChangeScene(GameManager.SceneData.mainMenuSceneIndex);
+                UIManager.ChangeScene(CoreManager.SceneData.mainMenuSceneIndex);
                 CoreManager.InitPlayData();
                 break;
 
@@ -46,6 +46,12 @@ public class SetScene : MonoBehaviour
 
                 throw new ArgumentOutOfRangeException(nameof(type), type, null);
         }
+    }
+
+    // 메뉴로
+    public void OpenMenuPhase()
+    {
+        StartCoroutine(ChangeScene(SceneType.Menu));
     }
 
     // 자리

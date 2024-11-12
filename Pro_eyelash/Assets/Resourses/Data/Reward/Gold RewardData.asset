@@ -9,8 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 489dd66823dbcd14bac38b5b7560c239, type: 3}
-  m_Name: SoundProfileData
+  m_Script: {fileID: 11500000, guid: 4b40afc5f2ea5ac4181b1c09a361aa73, type: 3}
+  m_Name: Gold RewardData
   m_EditorClassIdentifier: 
-  audioType: 3
-  randomClipList: []
+  rewardSprite: {fileID: 0}
+  rewardDescription: 
+  minGold: 0
+  maxGold: 0

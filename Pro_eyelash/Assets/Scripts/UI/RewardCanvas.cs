@@ -23,7 +23,7 @@ namespace chataan.Scripts.UI
         [SerializeField] private SetReward rewardContainerPrefab;
         [SerializeField] private Transform rewardPanelRoot;
 
-        [Header("Reward")]
+        [Header("Select")]
         [SerializeField] private Transform choice2DCardSpawnRoot;
         [SerializeField] private SetChoiceCard choiceCardUIPrefab;
         [SerializeField] private ChoicePanel choicePanel;
