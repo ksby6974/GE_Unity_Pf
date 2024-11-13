@@ -13,4 +13,14 @@ MonoBehaviour:
   m_Name: EncounterData
   m_EditorClassIdentifier: 
   encounterRandomlyAtStage: 0
-  enemyEncounterList: []
+  enemyEncounterList:
+  - name: Test Stage
+    stageId: 0
+    bossEncounterList:
+    - targetBackgroundType: 0
+      enemyList:
+      - {fileID: 11400000, guid: ea676d82085ab0045ba44d6c938761fb, type: 2}
+    enemyEncounterList:
+    - targetBackgroundType: 0
+      enemyList:
+      - {fileID: 11400000, guid: ea676d82085ab0045ba44d6c938761fb, type: 2}

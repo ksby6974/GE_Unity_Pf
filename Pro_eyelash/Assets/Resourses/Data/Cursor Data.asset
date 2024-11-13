@@ -12,4 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 160e478232fa2e7479384be2d5c92d22, type: 3}
   m_Name: Cursor Data
   m_EditorClassIdentifier: 
-  cursorProfileList: []
+  cursorProfileList:
+  - name: Normal
+    cursorType: 0
+    useCursorAnimation: 0
+    cursorAnimationFrameList:
+    - cursorTexture: {fileID: 0}
+      cursorOffset: {x: 0, y: 0}
+    cursorAnimationClickedFrameList: []
+    frameRate: 0
+  - name: Check
+    cursorType: 1
+    useCursorAnimation: 0
+    cursorAnimationFrameList:
+    - cursorTexture: {fileID: 0}
+      cursorOffset: {x: 0, y: 0}
+    cursorAnimationClickedFrameList: []
+    frameRate: 0

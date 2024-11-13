@@ -7,7 +7,7 @@ namespace chataan.Scripts.Data.Chara
     // ━━━━━━━━━━━━━━━━━━━━━━━━━━
     // 캐릭터 객체 데이터 베이스
     // ━━━━━━━━━━━━━━━━━━━━━━━━━━
-    public class CharaDataBase : MonoBehaviour
+    public class CharaDataBase : ScriptableObject
     {
         [Header("Info")]
         [SerializeField] protected string characterID;      // 인덱스

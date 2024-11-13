@@ -1,23 +1,23 @@
 Using pre-set license
 Built from '2022.3/release' branch; Version is '2022.3.20f1 (61c2feb0970d) revision 6406910'; Using compiler version '192829333'; Build Type 'Release'
-OS: 'Windows 10  (10.0.19045) 64bit Education' Language: 'ko' Physical Memory: 16297 MB
+OS: 'Windows 10  (10.0.19045) 64bit Core' Language: 'ko' Physical Memory: 32551 MB
 BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 1
 
 COMMAND LINE ARGUMENTS:
-C:\Program Files\Unity\Hub\Editor\2022.3.20f1\Editor\Unity.exe
+C:\Program Files\2022.3.20f1\Editor\Unity.exe
 -adb2
 -batchMode
 -noUpm
 -name
 AssetImportWorker0
 -projectPath
-C:/Users/Administrator/Desktop/GE_Unity_Pf/My project
+C:/Users/augap/Desktop/_pro_uni/GE_Unity_Pf/My project
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-50977
-Successfully changed project path to: C:/Users/Administrator/Desktop/GE_Unity_Pf/My project
-C:/Users/Administrator/Desktop/GE_Unity_Pf/My project
+9534
+Successfully changed project path to: C:/Users/augap/Desktop/_pro_uni/GE_Unity_Pf/My project
+C:/Users/augap/Desktop/_pro_uni/GE_Unity_Pf/My project
 [UnityMemory] Configuration Parameters - Can be set up in boot.config
     "memorysetup-bucket-allocator-granularity=16"
     "memorysetup-bucket-allocator-bucket-count=8"
@@ -49,65 +49,65 @@ C:/Users/Administrator/Desktop/GE_Unity_Pf/My project
     "memorysetup-temp-allocator-size-cloud-worker=32768"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Player connection [27296] Host "[IP] 192.168.0.29 [Port] 0 [Flags] 2 [Guid] 1777097687 [EditorId] 1777097687 [Version] 1048832 [Id] WindowsEditor(7,I-17) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
+Player connection [33948] Host "[IP] 222.96.242.147 [Port] 0 [Flags] 2 [Guid] 3989860670 [EditorId] 3989860670 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-N8R7USH) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
 
-Player connection [27296] Host "[IP] 192.168.0.29 [Port] 0 [Flags] 2 [Guid] 1777097687 [EditorId] 1777097687 [Version] 1048832 [Id] WindowsEditor(7,I-17) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
+Player connection [33948] Host "[IP] 222.96.242.147 [Port] 0 [Flags] 2 [Guid] 3989860670 [EditorId] 3989860670 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-N8R7USH) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
 
-[Physics::Module] Initialized MultithreadedJobDispatcher with 15 workers.
-Refreshing native plugins compatible for Editor in 74.83 ms, found 3 plugins.
+[Physics::Module] Initialized MultithreadedJobDispatcher with 19 workers.
+Refreshing native plugins compatible for Editor in 75.25 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2022.3.20f1 (61c2feb0970d)
-[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2022.3.20f1/Editor/Data/Resources/UnitySubsystems
-[Subsystems] Discovering subsystems at path C:/Users/Administrator/Desktop/GE_Unity_Pf/My project/Assets
+[Subsystems] Discovering subsystems at path C:/Program Files/2022.3.20f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path C:/Users/augap/Desktop/_pro_uni/GE_Unity_Pf/My project/Assets
 GfxDevice: creating device client; threaded=0; jobified=0
 Direct3D:
     Version:  Direct3D 11.0 [level 11.1]
-    Renderer: NVIDIA GeForce GTX 1660 (ID=0x2184)
+    Renderer: NVIDIA GeForce RTX 4060 Ti (ID=0x2803)
     Vendor:   NVIDIA
-    VRAM:     5980 MB
-    Driver:   31.0.15.3623
+    VRAM:     7949 MB
+    Driver:   32.0.15.6094
 Initialize mono
-Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2022.3.20f1/Editor/Data/Managed'
-Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2022.3.20f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
-Mono config path = 'C:/Program Files/Unity/Hub/Editor/2022.3.20f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56808
+Mono path[0] = 'C:/Program Files/2022.3.20f1/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/2022.3.20f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
+Mono config path = 'C:/Program Files/2022.3.20f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56820
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
-Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.20f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.006832 seconds.
-- Loaded All Assemblies, in  0.318 seconds
+Register platform support module: C:/Program Files/2022.3.20f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.011893 seconds.
+- Loaded All Assemblies, in  0.400 seconds
 Native extension for WindowsStandalone target not found
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  0.343 seconds
-Domain Reload Profiling: 661ms
-	BeginReloadAssembly (101ms)
+- Finished resetting the current domain, in  0.323 seconds
+Domain Reload Profiling: 719ms
+	BeginReloadAssembly (116ms)
 		ExecutionOrderSort (0ms)
 		DisableScriptedObjects (0ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
 		CreateAndSetChildDomain (1ms)
-	RebuildCommonClasses (30ms)
-	RebuildNativeTypeToScriptingClass (10ms)
-	initialDomainReloadingComplete (52ms)
-	LoadAllAssembliesAndSetupDomain (125ms)
-		LoadAssemblies (99ms)
+	RebuildCommonClasses (37ms)
+	RebuildNativeTypeToScriptingClass (12ms)
+	initialDomainReloadingComplete (77ms)
+	LoadAllAssembliesAndSetupDomain (154ms)
+		LoadAssemblies (115ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (123ms)
-			TypeCache.Refresh (122ms)
-				TypeCache.ScanAssembly (109ms)
+		AnalyzeDomain (152ms)
+			TypeCache.Refresh (150ms)
+				TypeCache.ScanAssembly (136ms)
 			ScanForSourceGeneratedMonoScriptInfo (0ms)
-			ResolveRequiredComponents (0ms)
-	FinalizeReload (344ms)
+			ResolveRequiredComponents (1ms)
+	FinalizeReload (323ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (289ms)
+		SetupLoadedEditorAssemblies (260ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (8ms)
-			SetLoadedEditorAssemblies (6ms)
+			InitializePlatformSupportModulesInManaged (11ms)
+			SetLoadedEditorAssemblies (8ms)
 			RefreshPlugins (0ms)
 			BeforeProcessingInitializeOnLoad (2ms)
-			ProcessInitializeOnLoadAttributes (199ms)
-			ProcessInitializeOnLoadMethodAttributes (73ms)
+			ProcessInitializeOnLoadAttributes (167ms)
+			ProcessInitializeOnLoadMethodAttributes (71ms)
 			AfterProcessingInitializeOnLoad (0ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
@@ -115,48 +115,48 @@ Domain Reload Profiling: 661ms
 ========================================================================
 Worker process is ready to serve import requests
 Begin MonoManager ReloadAssembly
-- Loaded All Assemblies, in  3.512 seconds
-Refreshing native plugins compatible for Editor in 2.65 ms, found 3 plugins.
+- Loaded All Assemblies, in  2.694 seconds
+Refreshing native plugins compatible for Editor in 6.31 ms, found 3 plugins.
 Native extension for WindowsStandalone target not found
 Package Manager log level set to [2]
 [Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
 [Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
 [Package Manager] Cannot connect to Unity Package Manager local server
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  0.617 seconds
-Domain Reload Profiling: 4126ms
-	BeginReloadAssembly (142ms)
+- Finished resetting the current domain, in  0.716 seconds
+Domain Reload Profiling: 3405ms
+	BeginReloadAssembly (173ms)
 		ExecutionOrderSort (0ms)
-		DisableScriptedObjects (5ms)
+		DisableScriptedObjects (6ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
 		CreateAndSetChildDomain (19ms)
-	RebuildCommonClasses (31ms)
-	RebuildNativeTypeToScriptingClass (10ms)
-	initialDomainReloadingComplete (40ms)
-	LoadAllAssembliesAndSetupDomain (3286ms)
-		LoadAssemblies (3201ms)
+	RebuildCommonClasses (36ms)
+	RebuildNativeTypeToScriptingClass (12ms)
+	initialDomainReloadingComplete (52ms)
+	LoadAllAssembliesAndSetupDomain (2415ms)
+		LoadAssemblies (2338ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (168ms)
-			TypeCache.Refresh (148ms)
-				TypeCache.ScanAssembly (133ms)
-			ScanForSourceGeneratedMonoScriptInfo (14ms)
-			ResolveRequiredComponents (5ms)
-	FinalizeReload (617ms)
+		AnalyzeDomain (186ms)
+			TypeCache.Refresh (163ms)
+				TypeCache.ScanAssembly (148ms)
+			ScanForSourceGeneratedMonoScriptInfo (15ms)
+			ResolveRequiredComponents (6ms)
+	FinalizeReload (717ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (476ms)
+		SetupLoadedEditorAssemblies (548ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (5ms)
+			InitializePlatformSupportModulesInManaged (8ms)
 			SetLoadedEditorAssemblies (4ms)
 			RefreshPlugins (0ms)
-			BeforeProcessingInitializeOnLoad (56ms)
-			ProcessInitializeOnLoadAttributes (383ms)
-			ProcessInitializeOnLoadMethodAttributes (20ms)
-			AfterProcessingInitializeOnLoad (6ms)
+			BeforeProcessingInitializeOnLoad (71ms)
+			ProcessInitializeOnLoadAttributes (427ms)
+			ProcessInitializeOnLoadMethodAttributes (22ms)
+			AfterProcessingInitializeOnLoad (15ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
-		AwakeInstancesAfterBackupRestoration (6ms)
+		AwakeInstancesAfterBackupRestoration (19ms)
 Failed to load shader (instanceID 416, GUID dd89cf5b9246416f84610a006f916af7)
 Failed to load shader (instanceID 418, GUID 14eb328de4b8eb245bb7cea29e4ac00b)
 Failed to load shader (instanceID 420, GUID 68e6db2ebdc24f95958faec2be5558d6)
@@ -170,13 +170,13 @@ Failed to load shader (instanceID 436, GUID f7ada0af4f174f0694ca6a487b8f543d)
 Failed to load shader (instanceID 432, GUID a02a7d8c237544f1962732b55a9aebf1)
 Failed to load shader (instanceID 434, GUID c8d12adcee749c344b8117cf7c7eb912)
 Failed to load shader (instanceID 430, GUID 1e3b057af24249748ff873be7fafee47)
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.03 seconds
-Refreshing native plugins compatible for Editor in 3.04 ms, found 3 plugins.
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.06 seconds
+Refreshing native plugins compatible for Editor in 5.76 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 3211 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 32 unused Assets / (57.0 KB). Loaded Objects now: 3673.
-Memory consumption went from 129.9 MB to 129.8 MB.
-Total: 2.853600 ms (FindLiveObjects: 0.279600 ms CreateObjectMapping: 0.204400 ms MarkObjects: 2.287600 ms  DeleteObjects: 0.081200 ms)
+Unloading 32 unused Assets / (57.3 KB). Loaded Objects now: 3673.
+Memory consumption went from 125.6 MB to 125.6 MB.
+Total: 2.989500 ms (FindLiveObjects: 0.379900 ms CreateObjectMapping: 0.087700 ms MarkObjects: 2.427200 ms  DeleteObjects: 0.093900 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
@@ -193,44 +193,52 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
-  Time since last request: 8878.051099 seconds.
-  path: Assets/NueGames/NueDeck/Prefabs/UI/FloatingText.prefab
-  artifactKey: Guid(ff5e71a98d9a7364e9d9fbe0d5a58c35) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/NueGames/NueDeck/Prefabs/UI/FloatingText.prefab using Guid(ff5e71a98d9a7364e9d9fbe0d5a58c35) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8caf266c7fd4d2e3523d25aaf42629a4') in 0.002491 seconds
+  Time since last request: 2924673.497833 seconds.
+  path: Assets/NueGames/NueDeck/Scripts/UI/Reward/RewardContainer.cs
+  artifactKey: Guid(32ebbf3406414541be63c45832ae59bb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/NueGames/NueDeck/Scripts/UI/Reward/RewardContainer.cs using Guid(32ebbf3406414541be63c45832ae59bb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '861881dd82b90b768d64197738d57531') in 0.004105 seconds
 Number of updated asset objects reloaded before import = 0
 Number of asset objects unloaded after import = 0
 ========================================================================
 Received Import Request.
-  Time since last request: 10.278595 seconds.
-  path: Assets/NueGames/NueDeck/Prefabs/Collection/Card3D.prefab
-  artifactKey: Guid(a9728682a56595f4989b8f224d934689) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/NueGames/NueDeck/Prefabs/Collection/Card3D.prefab using Guid(a9728682a56595f4989b8f224d934689) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2cbef67cc59a749e275552f4bfc4f7c8') in 0.099565 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 103
-========================================================================
-Received Import Request.
-  Time since last request: 0.000025 seconds.
-  path: Assets/NueGames/NueDeck/Prefabs/Collection/CardUI.prefab
-  artifactKey: Guid(036311fd7fba31149957b48b3f26905c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/NueGames/NueDeck/Prefabs/Collection/CardUI.prefab using Guid(036311fd7fba31149957b48b3f26905c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e7c27c4bcb2426651045bc0ffba0bdea') in 0.022558 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 103
-========================================================================
-Received Import Request.
-  Time since last request: 0.000011 seconds.
+  Time since last request: 10387.473601 seconds.
   path: Assets/NueGames/NueDeck/Prefabs/Collection/CardUI_Choice.prefab
   artifactKey: Guid(064f09601e0b46348b1488f9cc7fd9e6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/NueGames/NueDeck/Prefabs/Collection/CardUI_Choice.prefab using Guid(064f09601e0b46348b1488f9cc7fd9e6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '925cd452d803d7b93e00cb2d183d0610') in 0.023265 seconds
+Start importing Assets/NueGames/NueDeck/Prefabs/Collection/CardUI_Choice.prefab using Guid(064f09601e0b46348b1488f9cc7fd9e6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c9549330e3e237a34959186a999b9320') in 0.221692 seconds
 Number of updated asset objects reloaded before import = 0
 Number of asset objects unloaded after import = 201
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000019 seconds.
-  path: Assets/NueGames/NueDeck/Prefabs/Collection/HandController.prefab
-  artifactKey: Guid(a45e8add0d26bd5499f54577a1579ee7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/NueGames/NueDeck/Prefabs/Collection/HandController.prefab using Guid(a45e8add0d26bd5499f54577a1579ee7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b337eae845748ee05f4a0be6288551df') in 0.002988 seconds
+  Time since last request: 134.535730 seconds.
+  path: Assets/NueGames/NueDeck/Prefabs/Collection/Card3D.prefab
+  artifactKey: Guid(a9728682a56595f4989b8f224d934689) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/NueGames/NueDeck/Prefabs/Collection/Card3D.prefab using Guid(a9728682a56595f4989b8f224d934689) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fb1ea1a651ceef3e59a4ca576f94c7b0') in 0.030080 seconds
 Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 15
+Number of asset objects unloaded after import = 103
+========================================================================
+Received Import Request.
+  Time since last request: 0.000014 seconds.
+  path: Assets/NueGames/NueDeck/Prefabs/Collection/CardUI.prefab
+  artifactKey: Guid(036311fd7fba31149957b48b3f26905c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/NueGames/NueDeck/Prefabs/Collection/CardUI.prefab using Guid(036311fd7fba31149957b48b3f26905c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0207082de3502ff6a4507d4b57b1593a') in 0.022902 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 103
+========================================================================
+Received Import Request.
+  Time since last request: 0.000014 seconds.
+  path: Assets/NueGames/NueDeck/Prefabs/Collection/CardUI_Choice.prefab
+  artifactKey: Guid(064f09601e0b46348b1488f9cc7fd9e6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/NueGames/NueDeck/Prefabs/Collection/CardUI_Choice.prefab using Guid(064f09601e0b46348b1488f9cc7fd9e6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a8727fdf1e8f58318d84c5bc0e2e83d8') in 0.022939 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 201
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/NueGames/NueDeck/Prefabs/Collection/CardCanvas.prefab
+  artifactKey: Guid(1f0d6da961667c54c92335a6cbca8ebc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/NueGames/NueDeck/Prefabs/Collection/CardCanvas.prefab using Guid(1f0d6da961667c54c92335a6cbca8ebc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9688eea11b57521570233ea85e68028e') in 0.021607 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 98
 Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
 TcpMessagingSession - receive error: operation aborted. errorcode: 995, details: 스레드 종료 또는 응용 프로그램 요청 때문에 I/O 작업이 취소되었습니다.
 AssetImportWorker is now disconnected from the server

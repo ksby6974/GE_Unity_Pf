@@ -86,6 +86,19 @@ namespace chataan.Scripts.Managers
         }
 
         // ─────────────────────────
+        // 패 초기화
+        // ─────────────────────────
+        private void InitHand()
+        {
+            _a = transform.TransformPoint(curveStart);
+            _b = transform.position;
+            _c = transform.TransformPoint(curveEnd);
+            _handBounds = new Rect((handOffset - handSize / 2), handSize);
+            _plane = new Plane(-Vector3.forward, transform.position);
+            _prevMousePos = Input.mousePosition;
+        }
+
+        // ─────────────────────────
         // Update
         // ─────────────────────────
         private void Update()
@@ -124,19 +137,6 @@ namespace chataan.Scripts.Managers
             // --------------------------------------------------------
 
             HandleDraggedCardOutsideHand(mouseButton, mousePos);
-        }
-
-        // ─────────────────────────
-        // 패 초기화
-        // ─────────────────────────
-        private void InitHand()
-        {
-            _a = transform.TransformPoint(curveStart);
-            _b = transform.position;
-            _c = transform.TransformPoint(curveEnd);
-            _handBounds = new Rect((handOffset - handSize / 2), handSize);
-            _plane = new Plane(-Vector3.forward, transform.position);
-            _prevMousePos = Input.mousePosition;
         }
 
         // ─────────────────────────
@@ -346,7 +346,7 @@ namespace chataan.Scripts.Managers
 
             if (CoreManager.SavePlayData.CanUseCards && CoreManager.SavePlayData.CurrentMana >= _heldCard.CardData.Cost)
             {
-                //RaycastHit hit;
+                RaycastHit hit;
                 var mainRay = _mainCam.ScreenPointToRay(mousePos);
                 var _canUse = false;
                 CharaBase selfCharacter = BattleManager.CurrentMainAlly;
@@ -577,6 +577,34 @@ namespace chataan.Scripts.Managers
 
             hand.RemoveAt(index);
         }
+
+#if UNITY_EDITOR
+        private void OnDrawGizmos()
+        {
+            Gizmos.matrix = transform.localToWorldMatrix;
+            Gizmos.color = Color.blue;
+
+            Gizmos.DrawSphere(curveStart, 0.03f);
+            //Gizmos.DrawSphere(Vector3.zero, 0.03f);
+            Gizmos.DrawSphere(curveEnd, 0.03f);
+
+            Vector3 p1 = curveStart;
+            for (int i = 0; i < 20; i++)
+            {
+                float t = (i + 1) / 20f;
+                Vector3 p2 = GetCurvePoint(curveStart, Vector3.zero, curveEnd, t);
+                Gizmos.DrawLine(p1, p2);
+                p1 = p2;
+            }
+
+            if (_mouseInsideHand)
+            {
+                Gizmos.color = Color.red;
+            }
+
+            Gizmos.DrawWireCube(handOffset, handSize);
+        }
+#endif
     }
 
 }

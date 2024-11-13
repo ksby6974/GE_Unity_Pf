@@ -61,7 +61,6 @@ namespace chataan.Scripts.Managers
         // ─────────────────────────
         public void ChangeScene(int iIndex)
         {
-            Debug.Log($"{iIndex}번째 장면 ChangeScene");
             StartCoroutine(ChangeSceneRoutine(iIndex));
         }
 

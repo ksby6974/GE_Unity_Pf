@@ -9,13 +9,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c3bf1d2f0eb976e4f85ba2aa15a87a92, type: 3}
+  m_Script: {fileID: 11500000, guid: 808034fd9220bf142a59ddda8c6a9bb7, type: 3}
   m_Name: PlayData
   m_EditorClassIdentifier: 
   drawCount: 5
   maxMana: 3
-  maxCardOnHand: 0
-  defaultName: Nue
+  initalAllyList:
+  - {fileID: 7495225173287781149, guid: c636ebb8afb335342a462189834a1a0f, type: 3}
+  initalDeck: {fileID: 11400000, guid: 31d9cc639bcf4894ab07080a39b20240, type: 2}
+  maxCardOnHand: 10
+  allCardsList: []
+  cardPrefab: {fileID: 1360538930282413229, guid: 7c83ecef3c498ff4988b0a838528c52e, type: 3}
+  defaultName: User
   useStageSystem: 0
   isRandomHand: 0
-  randomCardCount: 0
+  randomCardCount: 10

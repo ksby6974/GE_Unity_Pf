@@ -55,11 +55,14 @@ namespace chataan.Scripts.Managers
         {
             var currentDrawCount = 0;
 
+            Debug.Log("DrawCards");
+
             for (var i = 0; i < targetDrawCount; i++)
             {
                 // 패에 잡을 수 있는 최대 카드의 수를 넘음
                 if (CoreManager.PlayData.MaxCardOnHand <= HandPile.Count)
                 {
+                    Debug.Log($"Draw fail :{CoreManager.PlayData.MaxCardOnHand} , {HandPile.Count}");
                     return;
                 }
 

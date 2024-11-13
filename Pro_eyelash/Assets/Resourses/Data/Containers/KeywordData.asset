@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a4b3928288ebc24aa023192af8a6d99, type: 3}
+  m_Name: KeywordData
+  m_EditorClassIdentifier: 
+  keywordBaseList:
+  - keyword: 0
+    contentText: "\uD53C\uD574\uB97C \uBC1B\uC744 \uACBD\uC6B0 \uC774 \uC218\uCE58\uB9CC\uD07C
+      \uD53C\uD574\uB97C \uACBD\uAC10\uD569\uB2C8\uB2E4."
+  - keyword: 1
+    contentText: "\uBB3C\uB9AC\uC801 \uD53C\uD574\uB97C \uC904 \uB54C \uC774 \uC218\uCE58\uB9CC\uD07C
+      \uD53C\uD574\uAC00 \uC99D\uAC00\uD569\uB2C8\uB2E4."
+  - keyword: 2
+    contentText: "\uCC28\uB840 \uC885\uB8CC\uB420 \uB54C\uB9C8\uB2E4 \uC218\uCE58\uB9CC\uD07C
+      \uD53C\uD574\uB97C \uC785\uC2B5\uB2C8\uB2E4."
+  - keyword: 3
+    contentText: "\uD574\uB2F9 \uCE74\uB4DC\uB294 \uC0AC\uC6A9\uD558\uBA74 \uC774\uBC88
+      \uC804\uD22C \uB3D9\uC548 \uB371\uC5D0\uC11C \uC81C\uAC70\uB429\uB2C8\uB2E4."
+  - keyword: 4
+    contentText: "\uBC29\uC5B4\uB97C \uD560 \uACBD\uC6B0 \uC774 \uC218\uCE58\uB9CC\uD07C
+      \uBC29\uC5B4\uAC00 \uCD94\uAC00\uB85C \uC99D\uAC00\uD569\uB2C8\uB2E4."
+  - keyword: 5
+    contentText: "\uC218\uCE58\uB9CC\uD07C \uCC28\uB840\uC5D0 \uD589\uB3D9\uD560
+      \uC218 \uC5C6\uC2B5\uB2C8\uB2E4."

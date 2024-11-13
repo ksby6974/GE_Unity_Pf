@@ -12,6 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47c640d7ccf4b7c4aa229ecd761feab7, type: 3}
   m_Name: Card RewardData
   m_EditorClassIdentifier: 
-  rewardSprite: {fileID: 0}
-  rewardDescription: 
-  rewardCardList: []
+  rewardSprite: {fileID: 369986319, guid: 578c5a3c9bbfcc24a940beab82daed32, type: 3}
+  rewardDescription: "\uBCF4\uC0C1\uC744 \uC120\uD0DD\uD558\uC138\uC694.."
+  rewardCardList:
+  - {fileID: 11400000, guid: 784fd4ea56f99dc4ebcc1c1318e400f7, type: 2}
+  - {fileID: 11400000, guid: 873093c091ac5ac42bd6f975c5247719, type: 2}
+  - {fileID: 11400000, guid: a5cd77fc04a217843aeb8b53963b0ef3, type: 2}
+  - {fileID: 11400000, guid: 50c2979bc1bc6fc4baf9c847760b9ccc, type: 2}
+  - {fileID: 11400000, guid: 882989b5e5ec3754e91a45fd9bec05de, type: 2}

@@ -6,6 +6,8 @@ namespace NueGames.NueDeck.Scripts.Card.CardActions
 {
     public class DrawAction : CardActionBase
     {
+        public DrawAction() { Debug.Log("DrawAction!"); }
+
         public override CardActionType ActionType => CardActionType.Draw;
         public override void DoAction(CardActionParameters actionParameters)
         {
